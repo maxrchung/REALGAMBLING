@@ -1,19 +1,26 @@
+using System;
+using GambleCore.Interface;
+
 namespace GambleCore
 {
-    public enum GambleSymbol : byte
+    public class GambleEnumSymbol<T> : ISymbol where T : Enum
     {
-        Blank,
+        public readonly T Value;
+        public GambleEnumSymbol(T value) => Value = value;
+        public override string ToString() => Value.ToString();
+        public override int GetHashCode() => Value.GetHashCode();
 
-        Symbol1,
-        Symbol2,
-        Symbol3,
-        Symbol4,
-        Symbol5,
-
-        NoMatch,
-        SelectAnySymbol,
-        SelectSymbol1,
-        SelectSymbol2,
-        SelectIgnoredSymbol,
+        public override bool Equals(object obj)
+        {
+            switch (obj)
+            {
+                case GambleEnumSymbol<T> symbol:
+                    return Value.Equals(symbol.Value);
+                case T t:
+                    return Value.Equals(t);
+                default:
+                    return false;
+            }
+        }
     }
 }

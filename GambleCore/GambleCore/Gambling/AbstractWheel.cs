@@ -5,7 +5,7 @@ using GambleCore.Util;
 
 namespace GambleCore.Gambling
 {
-    public abstract class Wheel : IWheel
+    public abstract class AbstractWheel : IWheel
     {
         public virtual int Height { get; }
         protected virtual ISymbol[] Symbols { get; }
@@ -89,7 +89,7 @@ namespace GambleCore.Gambling
         }
     }
 
-    public class NullWheel : Wheel
+    public class NullWheel : AbstractWheel
     {
         public override int Height => 0;
         protected override ISymbol[] Symbols => new ISymbol[] { };

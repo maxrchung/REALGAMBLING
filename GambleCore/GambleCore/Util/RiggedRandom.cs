@@ -9,17 +9,34 @@ namespace GambleCore.Util
         /// <summary>
         /// Returns a random uint in [min, max)
         /// </summary>
-        uint NextUInt(uint min, uint max);
-
-        /// <summary>
-        /// Returns a random int in [min, max)
-        /// </summary>
-        int NextInt(int min, int max);
+        uint NextUInt(uint max);
 
         /// <summary>
         /// Returns a random float in [0,1)
         /// </summary>
         float NextFloat();
+    }
+
+    public static class RngExtensions
+    {
+        public static uint NextUInt(this IRng rng, uint min, uint max)
+        {
+            return rng.NextUInt(max - min) + min;
+        }
+
+        public static int NextInt(this IRng rng, int min, int max)
+        {
+            unchecked
+            {
+                return (int)rng.NextUInt((uint)(max - min)) + min;
+            }
+        }
+
+        public static T NextEnum<T>(this IRng rng) where T : Enum
+        {
+            var values = Enum.GetValues(typeof(T));
+            return (T)values.GetValue(rng.NextUInt(unchecked((uint)values.Length)));
+        }
     }
 
     public struct Pcg32 : IRng
@@ -49,7 +66,7 @@ namespace GambleCore.Util
             }
         }
 
-        private uint NextUInt(uint max)
+        public uint NextUInt(uint max)
         {
             if (max <= 0) throw new ArgumentOutOfRangeException(nameof(max));
             var threshold = unchecked(0u - max) % max;
@@ -61,9 +78,6 @@ namespace GambleCore.Util
                     return (r % max);
             }
         }
-
-        public uint NextUInt(uint min, uint exclusiveMax) => NextUInt(exclusiveMax - min) + min;
-        public int NextInt(int min, int exclusiveMax) => unchecked((int)NextUInt((uint)exclusiveMax - (uint)min) + min);
 
         public float NextFloat()
         {
