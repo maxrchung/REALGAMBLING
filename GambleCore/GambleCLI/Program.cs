@@ -63,7 +63,7 @@ internal class TestSymbol(SymbolType type) : ISymbol
     }
 }
 
-internal class TestWheel : Wheel
+internal class TestWheel : AbstractWheel
 {
     private int _height = 3;
     public override int Height => _height;
