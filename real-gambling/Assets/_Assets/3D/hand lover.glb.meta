@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 314eff6a0e789ee4988cd9375fa2a054
+guid: 61a6c238771754f46b38a2d201b5f8ef
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,12 +46,16 @@ ScriptedImporter:
 
 '
   optimizeGameObjects: 0
-  materials: []
-  textures: []
+  materials:
+  - {instanceID: 0}
+  - {instanceID: 0}
+  textures:
+  - {instanceID: 0}
+  - {instanceID: 0}
   hasSceneData: 1
   hasAnimationData: 1
-  hasMaterialData: 0
-  hasTextureData: 0
+  hasMaterialData: 1
+  hasTextureData: 1
   animations:
   - name: max-is-hand-idle
   - name: max-is-hand-idle-fist
@@ -63,6 +67,12 @@ ScriptedImporter:
   - name: max-is-hand-return
   - name: max-is-hand-wait
   _extensions: []
-  _textures: []
+  _textures:
+  - texture: {instanceID: 0}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {instanceID: 0}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
   _mainAssetIdentifier: scenes/Scene
   _importPlugins: []
