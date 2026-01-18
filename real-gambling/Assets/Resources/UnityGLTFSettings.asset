@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9216626890380121001
+--- !u!114 &-9192524341443887252
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,24 +9,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b516fa9f5941be92bd6cecf2dd5ca5, type: 3}
-  m_Name: VisibilityImport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.VisibilityImport
-  enabled: 1
---- !u!114 &-8359517175340708415
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b6fa8618a247c3a77768773459dcd5, type: 3}
-  m_Name: VisibilityExport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.VisibilityExport
+  m_Script: {fileID: 11500000, guid: a59cc7d090dc43ef86b454e445bdbf9a, type: 3}
+  m_Name: AudioExport
+  m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.AudioExport
   enabled: 0
---- !u!114 &-7941263147559846500
+--- !u!114 &-8175970573952730837
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60bb1ecd8af04e0e864c773a2aaf6263, type: 3}
+  m_Name: TextureTransformImport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.TextureTransformImport
+  enabled: 1
+--- !u!114 &-7974769989136293233
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13416558369ebcb46a99c28ceb137930, type: 3}
+  m_Name: VisualScriptingExportPlugin
+  m_EditorClassIdentifier: UnityGLTF.Interactivity.VisualScripting.ExportPlugin::UnityGLTF.Interactivity.VisualScripting.VisualScriptingExportPlugin
+  enabled: 0
+  cleanUpAndOptimizeExportedGraph: 1
+--- !u!114 &-7768754402519521819
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,7 +53,20 @@ MonoBehaviour:
   m_Name: Ktx2Import
   m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.Ktx2Import
   enabled: 1
---- !u!114 &-7577242077884283605
+--- !u!114 &-7059097870091939457
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9571021a85f04ddfb74e8aa5aad9cc5a, type: 3}
+  m_Name: UnlitMaterialsExport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.UnlitMaterialsExport
+  enabled: 1
+--- !u!114 &-5712696622259292932
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,7 +79,7 @@ MonoBehaviour:
   m_Name: GPUInstancingImport
   m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.GPUInstancingImport
   enabled: 1
---- !u!114 &-4634681479280663872
+--- !u!114 &-5484541003912261651
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,37 +88,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d3bb2aeeab442db8c587d6e67450acc, type: 3}
-  m_Name: UnlitMaterialsImport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.UnlitMaterialsImport
+  m_Script: {fileID: 11500000, guid: 984138db70144b97b48597182a21b46c, type: 3}
+  m_Name: TextureTransformExport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.TextureTransformExport
   enabled: 1
---- !u!114 &-4588497362326502410
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 473c2b5b3de547139304b32beee641e9, type: 3}
-  m_Name: AnimationPointerImport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.AnimationPointerImport
-  enabled: 1
---- !u!114 &-3929619134169736959
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6d87ebf60834245a388cd150253839d, type: 3}
-  m_Name: AnimationPointerExport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.AnimationPointerExport
-  enabled: 0
---- !u!114 &-3446936936453312574
+--- !u!114 &-5203055158167261542
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,7 +105,181 @@ MonoBehaviour:
   m_Name: MaterialVariantsPlugin
   m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.MaterialVariantsPlugin
   enabled: 1
---- !u!114 &-1686217283996555365
+--- !u!114 &-3985044798579607034
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5152940c6ada2f3449baca5def38ea64, type: 3}
+  m_Name: MaterialExtensionsExport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.MaterialExtensionsExport
+  enabled: 1
+  KHR_materials_ior: 1
+  KHR_materials_transmission: 1
+  KHR_materials_volume: 1
+  KHR_materials_iridescence: 1
+  KHR_materials_specular: 1
+  KHR_materials_clearcoat: 1
+  KHR_materials_emissive_strength: 1
+  KHR_materials_sheen: 1
+  KHR_materials_anisotropy: 1
+--- !u!114 &-2546519186293266012
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3579a4c311b8427f81a0c1a29e9acfe8, type: 3}
+  m_Name: LightsPunctualExport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.LightsPunctualExport
+  enabled: 1
+--- !u!114 &-2230636811785353916
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2239c10507484fb78bb19067a66500f2, type: 3}
+  m_Name: LodsImport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.LodsImport
+  enabled: 1
+--- !u!114 &-1654489838290464581
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9fe28b7eb945fd891714c55c74f44b, type: 3}
+  m_Name: CanvasExport
+  m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.CanvasExport
+  enabled: 0
+--- !u!114 &-610608834551940137
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3011a000a64498d8297909d5cc472a, type: 3}
+  m_Name: SpriteRendererExport
+  m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.SpriteRendererExport
+  enabled: 1
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9a5969691dba845877d0a52b6d9397, type: 3}
+  m_Name: UnityGLTFSettings
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.GLTFSettings
+  packageVersion: 
+  shaderStrippingSettings:
+    stripPassesFromAllShaders: 0
+    stripPasses: 0
+  ImportPlugins:
+  - {fileID: -7768754402519521819}
+  - {fileID: -2230636811785353916}
+  - {fileID: -8175970573952730837}
+  - {fileID: 5460405177098907076}
+  - {fileID: 2403898152952948282}
+  - {fileID: 610465881258486254}
+  - {fileID: 9055222137493861055}
+  - {fileID: 4194159911068995976}
+  - {fileID: 4550099424379114595}
+  - {fileID: 617527807345802031}
+  - {fileID: -5712696622259292932}
+  - {fileID: 6559470554937964334}
+  ExportPlugins:
+  - {fileID: 2224309521350863404}
+  - {fileID: -3985044798579607034}
+  - {fileID: -5484541003912261651}
+  - {fileID: 5847033515372965771}
+  - {fileID: -7059097870091939457}
+  - {fileID: 7683461762093981131}
+  - {fileID: -2546519186293266012}
+  - {fileID: -5203055158167261542}
+  - {fileID: -9192524341443887252}
+  - {fileID: 1683135939574071261}
+  - {fileID: 7630629362668023756}
+  - {fileID: -610608834551940137}
+  - {fileID: -1654489838290464581}
+  - {fileID: -7974769989136293233}
+  exportNames: 1
+  exportFullPath: 0
+  EditorExportTransformMode: 0
+  EditorExportFileFormat: 0
+  useMainCameraVisibility: 1
+  exportDisabledGameObjects: 0
+  tryExportTexturesFromDisk: 0
+  useTextureFileTypeHeuristic: 1
+  defaultJpegQuality: 90
+  exportAnimations: 1
+  bakeAnimationSpeed: 1
+  uniqueAnimationNames: 0
+  bakeSkinnedMeshes: 0
+  blendShapeExportProperties: -1
+  blendShapeExportSparseAccessors: 1
+  exportVertexColors: 1
+  UseCaching: 1
+--- !u!114 &610465881258486254
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473c2b5b3de547139304b32beee641e9, type: 3}
+  m_Name: AnimationPointerImport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.AnimationPointerImport
+  enabled: 1
+--- !u!114 &617527807345802031
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3bb2aeeab442db8c587d6e67450acc, type: 3}
+  m_Name: UnlitMaterialsImport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.UnlitMaterialsImport
+  enabled: 1
+--- !u!114 &1683135939574071261
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85d7bc6d6ea44f46b33f0a3a2e09283, type: 3}
+  m_Name: BakeParticleSystem
+  m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.BakeParticleSystem
+  enabled: 0
+--- !u!114 &2224309521350863404
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +292,7 @@ MonoBehaviour:
   m_Name: LodsExport
   m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.LodsExport
   enabled: 1
---- !u!114 &-1594090943976527493
+--- !u!114 &2403898152952948282
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,11 +301,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dca6a7cdc544a17b19918041bc59d14, type: 3}
-  m_Name: DracoImport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.DracoImport
+  m_Script: {fileID: 11500000, guid: d48839dd2db84f9f94ec4e3bb77e9f9e, type: 3}
+  m_Name: LightsPunctualImport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.LightsPunctualImport
   enabled: 1
---- !u!114 &-1390870467797720100
+--- !u!114 &4194159911068995976
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,68 +328,7 @@ MonoBehaviour:
   KHR_materials_pbrSpecularGlossiness: 1
   KHR_materials_emissive_strength: 1
   KHR_materials_anisotropy: 1
---- !u!114 &1
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d9a5969691dba845877d0a52b6d9397, type: 3}
-  m_Name: UnityGLTFSettings
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.GLTFSettings
-  packageVersion: 
-  shaderStrippingSettings:
-    stripPassesFromAllShaders: 0
-    stripPasses: 0
-  ImportPlugins:
-  - {fileID: -7941263147559846500}
-  - {fileID: 885213300105248412}
-  - {fileID: 3918085196151142801}
-  - {fileID: -1594090943976527493}
-  - {fileID: 1463932508560083521}
-  - {fileID: -4588497362326502410}
-  - {fileID: 844762775185927222}
-  - {fileID: -1390870467797720100}
-  - {fileID: -9216626890380121001}
-  - {fileID: -4634681479280663872}
-  - {fileID: -7577242077884283605}
-  - {fileID: 3149262150659300730}
-  ExportPlugins:
-  - {fileID: -1686217283996555365}
-  - {fileID: 4483726560827912180}
-  - {fileID: 1325666775921883052}
-  - {fileID: -8359517175340708415}
-  - {fileID: 9082614576740681510}
-  - {fileID: -3929619134169736959}
-  - {fileID: 4565208556246344352}
-  - {fileID: -3446936936453312574}
-  - {fileID: 270274157800724734}
-  - {fileID: 3984049313198721078}
-  - {fileID: 7551319409211632846}
-  - {fileID: 8497858321456601919}
-  - {fileID: 3114521129889767480}
-  - {fileID: 3757506795714159358}
-  exportNames: 1
-  exportFullPath: 0
-  EditorExportTransformMode: 0
-  EditorExportFileFormat: 0
-  useMainCameraVisibility: 1
-  exportDisabledGameObjects: 0
-  tryExportTexturesFromDisk: 0
-  useTextureFileTypeHeuristic: 1
-  defaultJpegQuality: 90
-  exportAnimations: 1
-  bakeAnimationSpeed: 1
-  uniqueAnimationNames: 0
-  bakeSkinnedMeshes: 0
-  blendShapeExportProperties: -1
-  blendShapeExportSparseAccessors: 1
-  exportVertexColors: 1
-  UseCaching: 1
---- !u!114 &270274157800724734
+--- !u!114 &4550099424379114595
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,76 +337,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a59cc7d090dc43ef86b454e445bdbf9a, type: 3}
-  m_Name: AudioExport
-  m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.AudioExport
+  m_Script: {fileID: 11500000, guid: 06b516fa9f5941be92bd6cecf2dd5ca5, type: 3}
+  m_Name: VisibilityImport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.VisibilityImport
+  enabled: 1
+--- !u!114 &5460405177098907076
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dca6a7cdc544a17b19918041bc59d14, type: 3}
+  m_Name: DracoImport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.DracoImport
+  enabled: 1
+--- !u!114 &5847033515372965771
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b6fa8618a247c3a77768773459dcd5, type: 3}
+  m_Name: VisibilityExport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.VisibilityExport
   enabled: 0
---- !u!114 &844762775185927222
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 837601ceb763400cadb3575e55885670, type: 3}
-  m_Name: MeshoptImport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.MeshoptImport
-  enabled: 1
---- !u!114 &885213300105248412
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2239c10507484fb78bb19067a66500f2, type: 3}
-  m_Name: LodsImport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.LodsImport
-  enabled: 1
---- !u!114 &1325666775921883052
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 984138db70144b97b48597182a21b46c, type: 3}
-  m_Name: TextureTransformExport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.TextureTransformExport
-  enabled: 1
---- !u!114 &1463932508560083521
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d48839dd2db84f9f94ec4e3bb77e9f9e, type: 3}
-  m_Name: LightsPunctualImport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.LightsPunctualImport
-  enabled: 1
---- !u!114 &3114521129889767480
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d9fe28b7eb945fd891714c55c74f44b, type: 3}
-  m_Name: CanvasExport
-  m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.CanvasExport
-  enabled: 0
---- !u!114 &3149262150659300730
+--- !u!114 &6559470554937964334
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,82 +380,7 @@ MonoBehaviour:
   m_Name: AudioImport
   m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.AudioImport
   enabled: 0
---- !u!114 &3757506795714159358
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13416558369ebcb46a99c28ceb137930, type: 3}
-  m_Name: VisualScriptingExportPlugin
-  m_EditorClassIdentifier: UnityGLTF.Interactivity.VisualScripting.ExportPlugin::UnityGLTF.Interactivity.VisualScripting.VisualScriptingExportPlugin
-  enabled: 0
-  cleanUpAndOptimizeExportedGraph: 1
---- !u!114 &3918085196151142801
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60bb1ecd8af04e0e864c773a2aaf6263, type: 3}
-  m_Name: TextureTransformImport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.TextureTransformImport
-  enabled: 1
---- !u!114 &3984049313198721078
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85d7bc6d6ea44f46b33f0a3a2e09283, type: 3}
-  m_Name: BakeParticleSystem
-  m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.BakeParticleSystem
-  enabled: 0
---- !u!114 &4483726560827912180
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5152940c6ada2f3449baca5def38ea64, type: 3}
-  m_Name: MaterialExtensionsExport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.MaterialExtensionsExport
-  enabled: 1
-  KHR_materials_ior: 1
-  KHR_materials_transmission: 1
-  KHR_materials_volume: 1
-  KHR_materials_iridescence: 1
-  KHR_materials_specular: 1
-  KHR_materials_clearcoat: 1
-  KHR_materials_emissive_strength: 1
-  KHR_materials_sheen: 1
-  KHR_materials_anisotropy: 1
---- !u!114 &4565208556246344352
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3579a4c311b8427f81a0c1a29e9acfe8, type: 3}
-  m_Name: LightsPunctualExport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.LightsPunctualExport
-  enabled: 1
---- !u!114 &7551319409211632846
+--- !u!114 &7630629362668023756
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: TextMeshGameObjectExport
   m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.TextMeshGameObjectExport
   enabled: 1
---- !u!114 &8497858321456601919
+--- !u!114 &7683461762093981131
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -402,11 +402,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a3011a000a64498d8297909d5cc472a, type: 3}
-  m_Name: SpriteRendererExport
-  m_EditorClassIdentifier: UnityGLTF.Plugins::UnityGLTF.Plugins.SpriteRendererExport
-  enabled: 1
---- !u!114 &9082614576740681510
+  m_Script: {fileID: 11500000, guid: b6d87ebf60834245a388cd150253839d, type: 3}
+  m_Name: AnimationPointerExport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.AnimationPointerExport
+  enabled: 0
+--- !u!114 &9055222137493861055
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9571021a85f04ddfb74e8aa5aad9cc5a, type: 3}
-  m_Name: UnlitMaterialsExport
-  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.UnlitMaterialsExport
+  m_Script: {fileID: 11500000, guid: 837601ceb763400cadb3575e55885670, type: 3}
+  m_Name: MeshoptImport
+  m_EditorClassIdentifier: UnityGLTFScripts::UnityGLTF.Plugins.MeshoptImport
   enabled: 1
