@@ -13,6 +13,10 @@ public class Reel
     public int CurrentIndex => currentIndex;
     public List<ReelIcons> IconsOnReel => iconsOnReel;
     public int Multiplier => multiplier;
+    private int reelValue;
+    private int maxReelValue;
+    private int reelSize;
+    private int reelItems;
     
     public Reel(int minIcons, int maxIcons, int reelSize)
     {
@@ -26,6 +30,22 @@ public class Reel
         }
         
         AddIconsRandomly(Random.Range(minIcons, maxIcons));
+    }
+
+    public Reel(int newReelSize, int reelValue)
+    {
+        Debug.Log("creating new reel");
+        maxReelValue = reelValue;
+        reelValue = 0;
+        reelSize = newReelSize;
+        reelItems = 0;
+        currentIndex = 0;
+        iconsOnReel = new List<ReelIcons>();
+        for (int i = 0; i < reelSize; i++)
+        {
+            iconsOnReel.Add(ReelIcons.None);
+        }
+        AddIconsUntilValue();
     }
 
     private void AddIconsRandomly(int remainingIcons)
@@ -49,6 +69,37 @@ public class Reel
             
             i++;
             i %= iconsOnReel.Count;
+        }
+    }
+
+    private void AddIconsUntilValue()
+    {
+        while ( reelValue < maxReelValue &&  reelItems < iconsOnReel.Count)
+        {
+            int tryIndex = Random.Range(0,reelSize);
+            if(reelItems < iconsOnReel.Count)
+            {
+                if(iconsOnReel[tryIndex] == ReelIcons.None)
+                {
+                    int tryNum = Random.Range(1,7);
+                    if(reelValue + SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount <= maxReelValue)
+                    {
+                        iconsOnReel[tryNum] = SOReferences.Instance.Icons.Ranks[tryNum];
+                        reelValue += SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount;
+                        reelItems += 1;
+                    }
+                }
+            }
+            else
+            {
+                int tryNum = Random.Range(1,7);
+                if(reelValue + SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount <= maxReelValue)
+                {
+                    reelValue -= SOReferences.Instance.Icons.Values[iconsOnReel[tryNum]].PointAmount;
+                    iconsOnReel[tryNum] = SOReferences.Instance.Icons.Ranks[tryNum];
+                    reelValue += SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount;
+                }
+            }
         }
     }
 
