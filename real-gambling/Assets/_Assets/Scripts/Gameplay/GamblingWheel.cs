@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 public class GamblingWheelController : AbstractWheel
 {
-    public override int Height => 3;
+    public override int Height => 5;
     private readonly ISymbol[] _symbols;
     protected override ISymbol[] Symbols => _symbols.ToArray();
 
@@ -42,8 +42,8 @@ public class GamblingWheel : MonoBehaviour
     void Start()
     {
         _board = _gamblingController.CreateBoard(0);
-        _roomController = FindObjectsByType<RoomController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
-            .First();
+        // _roomController = FindObjectsByType<RoomController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
+            // .First();
         _wheelController = new GamblingWheelController();
         RandomizeSymbols();
         _board.AddWheel(_wheelController);

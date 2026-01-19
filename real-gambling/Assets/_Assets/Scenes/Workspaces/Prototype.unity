@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &17409787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4006883736597349438, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+  m_PrefabInstance: {fileID: 7953711145452139971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &137114083 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8281050607624732155, guid: ac09b711620a5674782686b7b4b9906d, type: 3}
@@ -166,19 +171,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrototypeGameSystem
   moneyCounter: {fileID: 1769389010}
   fingerCounter: {fileID: 1938284365}
-  reelSpinButtonOne: {fileID: 6054521310881557481}
-  reelSpinButtonTwo: {fileID: 1530302065}
-  reelSpinButtonThree: {fileID: 343548893}
-  reelSpinButtonFour: {fileID: 1245692832}
-  reelSpinButtonFive: {fileID: 137114083}
-  reelOne: {fileID: 7953711145452139976}
-  reelTwo: {fileID: 7953711145452139975}
-  reelThree: {fileID: 7953711145452139974}
-  reelFour: {fileID: 7953711145452139973}
-  reelFive: {fileID: 7953711145452139972}
+  reelSpinButtons:
+  - {fileID: 6054521310881557481}
+  - {fileID: 1530302065}
+  - {fileID: 343548893}
+  - {fileID: 1245692832}
+  - {fileID: 137114083}
+  reels:
+  - {fileID: 7953711145452139976}
+  - {fileID: 7953711145452139975}
+  - {fileID: 7953711145452139974}
+  - {fileID: 7953711145452139973}
+  - {fileID: 7953711145452139972}
   betField: {fileID: 1229605425}
   tradeFingerButton: {fileID: 742752595}
   playButton: {fileID: 1280123823}
+  playButtonText: {fileID: 1864748468}
   textBox: {fileID: 1435972036}
   iconSO: {fileID: 11400000, guid: 5100762caa1ab7744bd1e12d6bc4635c, type: 2}
 --- !u!4 &326048111
@@ -628,7 +636,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 400, y: -400}
-  m_SizeDelta: {x: 200, y: 100}
+  m_SizeDelta: {x: 200, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1280123823
 MonoBehaviour:
@@ -673,7 +681,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1280123824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 326048110}
+        m_TargetAssemblyTypeName: PrototypeGameSystem, Assembly-CSharp
+        m_MethodName: OnPlayButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1280123824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,7 +1147,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: 'PLAY
+
+    ($1)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1912,7 +1934,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4006883736597349438, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7953711145452139978}
   m_SourcePrefab: {fileID: 100100000, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
 --- !u!114 &7953711145452139972 stripped
 MonoBehaviour:
@@ -1963,12 +1988,25 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1808625232204899067, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
   m_PrefabInstance: {fileID: 7953711145452139971}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 17409787}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b76307d49c363946b0d5093ad0d7963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIReel
+--- !u!114 &7953711145452139978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17409787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c0d9631385646b88d66af03ceaaf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GamblingWheel
+  FaceCount: 5
 --- !u!1001 &8643265429597027785
 PrefabInstance:
   m_ObjectHideFlags: 0

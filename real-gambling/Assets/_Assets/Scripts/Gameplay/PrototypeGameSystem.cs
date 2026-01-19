@@ -1,6 +1,13 @@
 using DG.Tweening.Core.Easing;
+using GambleCore;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using GambleCore.Interface;
+using GambleCore.Util;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 
 public class PrototypeGameSystem : MonoBehaviour
 {
@@ -8,39 +15,34 @@ public class PrototypeGameSystem : MonoBehaviour
     [SerializeField] private UICounter fingerCounter;
 
     [Space]
-    [SerializeField] private UIReelSpinButton reelSpinButtonOne;
-    [SerializeField] private UIReelSpinButton reelSpinButtonTwo;
-    [SerializeField] private UIReelSpinButton reelSpinButtonThree;
-    [SerializeField] private UIReelSpinButton reelSpinButtonFour;
-    [SerializeField] private UIReelSpinButton reelSpinButtonFive;
+    [SerializeField] private List<UIReelSpinButton> reelSpinButtons;
 
     [Space]
-    [SerializeField] private UIReel reelOne;
-    [SerializeField] private UIReel reelTwo;
-    [SerializeField] private UIReel reelThree;
-    [SerializeField] private UIReel reelFour;
-    [SerializeField] private UIReel reelFive;
+    [SerializeField] private List<UIReel> reels;
 
-    [Space]
-    [SerializeField] private UIBetField betField;
-    
-    [Space]
-    [SerializeField] private Button tradeFingerButton;
+    [Space] [SerializeField] private UIBetField betField;
+
+    [Space] [SerializeField] private Button tradeFingerButton;
     [SerializeField] private Button playButton;
+    [SerializeField] private TMP_Text playButtonText;
 
-    [Space]
-    [SerializeField] private TextBox textBox;
+    [Space] [SerializeField] private TextBox textBox;
 
-    [Space]
-    [SerializeField] private ReelIconValuesSO iconSO;
+    [Space] [SerializeField] private ReelIconValuesSO iconSO;
 
     private int moneyAmount;
     private int fingerAmount;
+    private int costToPlay;
+
+    // START BLOCK -- gambling controller fields
+    private GamblingController _gamblingController;
+    private IGamblingBoard _board;
+    private List<GamblingWheelController> wheels;
 
     private Vector2 screenCenter = new Vector2(960, 510);
-    
+
     private static PrototypeGameSystem instance;
-    
+
     public int MoneyAmount
     {
         get => moneyAmount;
@@ -60,9 +62,9 @@ public class PrototypeGameSystem : MonoBehaviour
             fingerCounter.SetAmountText(fingerAmount.ToString());
         }
     }
-    
+
     public static PrototypeGameSystem Instance => instance;
-    
+
     public void Awake()
     {
         if (instance == null)
@@ -74,36 +76,44 @@ public class PrototypeGameSystem : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     public void Start()
     {
+        _gamblingController = new GamblingController();
+        _board = _gamblingController.CreateBoard(0);
+        wheels = new List<GamblingWheelController>();
+        
         MoneyAmount = 0;
         FingerAmount = 5;
+        costToPlay = 1;
 
-        reelSpinButtonOne.Initialize();
-        reelSpinButtonTwo.Initialize();
-        reelSpinButtonThree.Initialize();
-        reelSpinButtonFour.Initialize();
-        reelSpinButtonFive.Initialize();
+        foreach (var reelSpinButton in reelSpinButtons)
+        {
+            reelSpinButton.Initialize();
+        }
         betField.ResetText();
         
+        CreateWheel();
+        CreateWheel();
         AfterPlayerAction();
-        reelOne.DisplayIcons(new Sprite[]
-        {
-            iconSO.ReelValues[ReelIcons.Bread].iconSprite,
-            iconSO.ReelValues[ReelIcons.Fish].iconSprite,
-            iconSO.ReelValues[ReelIcons.Snake].iconSprite,
-            iconSO.ReelValues[ReelIcons.PepperMan].iconSprite,
-            iconSO.ReelValues[ReelIcons.CarKey].iconSprite,
-        });
+    }
+
+    public void CreateWheel()
+    {
+        string seedName = "GamblingWheel" + wheels.Count;
+        var rng = DeterministicRng.CreateStream(0, seedName);
+        wheels.Add(new GamblingWheelController());
+        wheels[^1].RandomizeSymbols(rng);
+        _board.AddWheel(wheels[^1]);
     }
     
     public void AfterPlayerAction()
     {
-        if (moneyAmount <= 0)
+        playButtonText.text = $"PLAY\n(${costToPlay})";
+        if (moneyAmount < costToPlay)
         { // edge case, out of money
             playButton.interactable = false;
-            
+
             if (fingerAmount == 0)
             {
                 textBox.SetText("Yer outta money and fingers.\n\nGAME OVER!");
@@ -122,49 +132,71 @@ public class PrototypeGameSystem : MonoBehaviour
         }
 
         tradeFingerButton.interactable = false;
-        Debug.Log($"reelSpinButtonThree.IsLocked: {reelSpinButtonThree.IsLocked}");
-        if (reelSpinButtonThree.IsLocked)
-        { // edge case, game start -- need third reel
+        if (reelSpinButtons[2].IsLocked)
+        {
+            // edge case, game start -- need third reel
             textBox.SetText("Ya need at least three reels to play.\n\nBuy one now!");
             textBox.MoveBox(screenCenter + new Vector2(150, 300));
             textBox.ToggleVisibility(true);
             playButton.interactable = false;
             return;
         }
-        
+
         // Main gameplay
         textBox.ToggleVisibility(false);
         playButton.interactable = true;
+    }
+
+    public void OnPlayButtonPressed()
+    {
+        if (moneyAmount < costToPlay)
+        {
+            return;    
+        }
+
+        MoneyAmount -= costToPlay;
+        
+        // stub
+        var steps = _board.GetRandomSteps();
+        _board.PerformSteps(steps);
+
+        for (int i = 0; i < wheels.Count; i++)
+        {
+            var wheelSprites = wheels[i].ShownSymbols.Select(symbol => iconSO.ReelValues[((ReelIconAdapter)symbol).Value].iconSprite);
+            reels[i].DisplayIcons(wheelSprites.ToArray());
+        }
+
+        AfterPlayerAction();
     }
 
     public void OnTradeFingerButtonPressed()
     {
         if (!TrySubtractFingers(1))
             return;
-        
+
         MoneyAmount += 10;
         AfterPlayerAction();
     }
-    
+
     public bool TrySubtractMoney(int difference)
     {
-        if (moneyAmount > difference)
+        if (moneyAmount >= difference)
         {
             MoneyAmount -= difference;
             return true;
         }
-        
+
         return false;
     }
 
     public bool TrySubtractFingers(int difference)
     {
-        if (fingerAmount > difference)
+        if (fingerAmount >= difference)
         {
             FingerAmount -= difference;
             return true;
         }
-        
+
         return false;
     }
 }
