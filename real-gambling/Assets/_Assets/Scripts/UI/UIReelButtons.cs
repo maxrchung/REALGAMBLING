@@ -1,6 +1,7 @@
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIReelSpinButton : MonoBehaviour
@@ -12,18 +13,20 @@ public class UIReelSpinButton : MonoBehaviour
     [SerializeField] private TMP_Text unlockReelText;
     [SerializeField] private Button upgradeReelButton;
     [SerializeField] private TMP_Text upgradeReelText;
-    [SerializeField] private Button upgradeIconButton;
-    [SerializeField] private TMP_Text unlockIconText;
+    [SerializeField] private Button changeReelButton;
+    [SerializeField] private TMP_Text changeReelText;
     [SerializeField] private Image reelSpinActiveImage;
     [Space]
     [SerializeField] private Color activeColor;
     [SerializeField] private Color inactiveColor;
 
+    private int reelIndex;
 
     public bool IsLocked => isLocked;
 
-    public void Initialize()
+    public void Initialize(int index)
     {
+        reelIndex = index;
         Reset();
     }
 
@@ -38,8 +41,7 @@ public class UIReelSpinButton : MonoBehaviour
         {
             isLocked = false;
             ToggleActive(isLocked);
-            GameSystem.Instance.CreateReel();
-            GameSystem.Instance.AfterPlayerAction();
+            GameSystem.Instance.OnUnlockReelButtonPressed(reelIndex);
         }
     }
 
@@ -48,9 +50,12 @@ public class UIReelSpinButton : MonoBehaviour
         
     }
 
-    public void OnUpgradeIconButtonClicked()
+    public void OnChangeReelButtonClicked()
     {
-        
+        if (GameSystem.Instance.TrySubtractMoney(5))
+        {
+            GameSystem.Instance.OnChangeReelButtonPressed(reelIndex);
+        }
     }
 
     private void ToggleActive(bool locked)
@@ -63,7 +68,7 @@ public class UIReelSpinButton : MonoBehaviour
             
             unlockReelButton.gameObject.SetActive(false);
             upgradeReelButton.gameObject.SetActive(true);
-            upgradeIconButton.gameObject.SetActive(true);
+            changeReelButton.gameObject.SetActive(true);
         }
         else
         {
@@ -72,7 +77,7 @@ public class UIReelSpinButton : MonoBehaviour
             unlockReelButton.gameObject.SetActive(true);
             unlockReelText.text = $"UNLOCK (${unlockAmount})";
             upgradeReelButton.gameObject.SetActive(false);
-            upgradeIconButton.gameObject.SetActive(false);
+            changeReelButton.gameObject.SetActive(false);
         }
     }
 }

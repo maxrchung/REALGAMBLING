@@ -125,4 +125,16 @@ public class Reel
     {
         multiplier++;
     }
+    
+    public override string ToString()
+    {
+        string iconString = "";
+        
+        foreach (var icon in IconsOnReel)
+        {
+            iconString += icon;
+        }
+
+        return iconString;
+    }
 }

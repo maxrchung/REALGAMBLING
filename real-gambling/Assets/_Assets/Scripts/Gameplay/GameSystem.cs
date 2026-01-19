@@ -84,20 +84,21 @@ public class GameSystem : MonoBehaviour
         CostToPlay = 1;
         reelInstances = new List<Reel>();
 
-        foreach (var reelSpinButton in reelSpinButtons)
+        for (int i = 0; i < reelSpinButtons.Count; i++)
         {
-            reelSpinButton.Initialize();
+            reelSpinButtons[i].Initialize(i);
         }
-
-        CreateReel();
-        CreateReel();
+        
+        reelInstances.Add(CreateReel());
+        reelInstances.Add(CreateReel());
         AfterPlayerAction();
     }
 
-    public void CreateReel()
+    public Reel CreateReel()
     {
         Reel newReel = new Reel(6, 8, 12);
-        reelInstances.Add(newReel);
+        Debug.Log(newReel.ToString());
+        return newReel;
     }
 
     public void AfterPlayerAction()
@@ -198,6 +199,19 @@ public class GameSystem : MonoBehaviour
         AfterPlayerAction();
     }
 
+    public void OnUnlockReelButtonPressed(int reelIndex)
+    {
+        reelInstances.Add(CreateReel());
+        AfterPlayerAction();
+    }
+
+    public void OnChangeReelButtonPressed(int reelIndex)
+    {
+        Debug.Log($"Changing reel for {reelIndex}");
+        Reel newReel = CreateReel();
+        reelInstances[reelIndex] = newReel;
+    }
+    
     private List<Match> CheckMatches(List<WinningCombinationSO> combinationsToCheck)
     {
         List<Match> matchList = new List<Match>();

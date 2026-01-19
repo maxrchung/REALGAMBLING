@@ -200,7 +200,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'UNLOCK
 
-    ($10)'
+    (10$)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -330,8 +330,8 @@ MonoBehaviour:
   unlockReelText: {fileID: 5732333443395786574}
   upgradeReelButton: {fileID: 6503058011123467149}
   upgradeReelText: {fileID: 1547550377217950174}
-  upgradeIconButton: {fileID: 245781064642220186}
-  unlockIconText: {fileID: 1859012892488328788}
+  changeReelButton: {fileID: 245781064642220186}
+  changeReelText: {fileID: 1859012892488328788}
   reelSpinActiveImage: {fileID: 7793266373128916954}
   activeColor: {r: 0.05540045, g: 0.94716984, b: 0.057713058, a: 1}
   inactiveColor: {r: 0, g: 0, b: 0, a: 1}
@@ -348,12 +348,12 @@ GameObject:
   - component: {fileID: 7109614162730787699}
   - component: {fileID: 245781064642220186}
   m_Layer: 5
-  m_Name: UpgradeIconButton
+  m_Name: ChangeReelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4767998341616377808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5520997758116973035}
         m_TargetAssemblyTypeName: UIReelSpinButton, Assembly-CSharp
-        m_MethodName: OnUpgradeIconButtonClicked
+        m_MethodName: OnChangeReelButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -535,7 +535,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'UNLOCK
 
-    ($10)'
+    (10$)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -672,9 +672,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'UNLOCK
+  m_text: 'CHANGE REEL
 
-    ($10)'
+    (5$)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -764,7 +764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8775105652880085275
 RectTransform:
   m_ObjectHideFlags: 0
