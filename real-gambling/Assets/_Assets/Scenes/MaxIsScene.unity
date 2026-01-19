@@ -1001,8 +1001,11 @@ MonoBehaviour:
   Renderer: {fileID: 724542722}
   Transparent: {fileID: 2100000, guid: 608ba4aba6d7efe41a5627b2d3cfa04b, type: 2}
   RedPanel: {fileID: 317434301}
-  EndPanel: {fileID: 0}
-  EndTexts: []
+  EndPanel: {fileID: 146282806}
+  EndTexts:
+  - {fileID: 192089064}
+  - {fileID: 1479040381}
+  - {fileID: 1844252599}
   MoneyText: {fileID: 359731254}
   PullText: {fileID: 587048838}
 --- !u!1 &667423870
