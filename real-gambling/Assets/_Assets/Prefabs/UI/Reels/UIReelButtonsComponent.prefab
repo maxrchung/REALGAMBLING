@@ -123,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5520997758116973035}
         m_TargetAssemblyTypeName: UIReelSpinButton, Assembly-CSharp
-        m_MethodName: OnSpinButtonClicked
+        m_MethodName: OnUnlockButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -327,8 +327,11 @@ MonoBehaviour:
   isLocked: 0
   unlockAmount: 0
   unlockReelButton: {fileID: 4492152294935772032}
+  unlockReelText: {fileID: 5732333443395786574}
   upgradeReelButton: {fileID: 6503058011123467149}
+  upgradeReelText: {fileID: 1547550377217950174}
   upgradeIconButton: {fileID: 245781064642220186}
+  unlockIconText: {fileID: 1859012892488328788}
   reelSpinActiveImage: {fileID: 7793266373128916954}
   activeColor: {r: 0.05540045, g: 0.94716984, b: 0.057713058, a: 1}
   inactiveColor: {r: 0, g: 0, b: 0, a: 1}
@@ -455,7 +458,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5520997758116973035}
         m_TargetAssemblyTypeName: UIReelSpinButton, Assembly-CSharp
-        m_MethodName: OnSpinButtonClicked
+        m_MethodName: OnUpgradeIconButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -866,7 +869,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5520997758116973035}
         m_TargetAssemblyTypeName: UIReelSpinButton, Assembly-CSharp
-        m_MethodName: OnSpinButtonClicked
+        m_MethodName: OnUpgradeReelButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

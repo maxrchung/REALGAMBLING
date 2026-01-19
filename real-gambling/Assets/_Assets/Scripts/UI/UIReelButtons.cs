@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,16 +9,18 @@ public class UIReelSpinButton : MonoBehaviour
     [SerializeField, ShowIf("isLocked")] private int unlockAmount;
     [Space]
     [SerializeField] private Button unlockReelButton;
+    [SerializeField] private TMP_Text unlockReelText;
     [SerializeField] private Button upgradeReelButton;
+    [SerializeField] private TMP_Text upgradeReelText;
     [SerializeField] private Button upgradeIconButton;
+    [SerializeField] private TMP_Text unlockIconText;
     [SerializeField] private Image reelSpinActiveImage;
     [Space]
     [SerializeField] private Color activeColor;
     [SerializeField] private Color inactiveColor;
 
-    private bool reelActive;
 
-    public bool ReelActive => reelActive;
+    public bool IsLocked => isLocked;
 
     public void Initialize()
     {
@@ -31,9 +34,11 @@ public class UIReelSpinButton : MonoBehaviour
 
     public void OnUnlockButtonClicked()
     {
-        if (PrototypeGameSystem.Instance.SubtractMoney(unlockAmount))
+        if (PrototypeGameSystem.Instance.TrySubtractMoney(unlockAmount))
         {
-            ToggleActive(!reelActive);   
+            isLocked = false;
+            ToggleActive(isLocked);
+            PrototypeGameSystem.Instance.AfterPlayerAction();
         }
     }
 
@@ -47,11 +52,11 @@ public class UIReelSpinButton : MonoBehaviour
         
     }
 
-    private void ToggleActive(bool isActive)
+    private void ToggleActive(bool locked)
     {
-        reelActive = isActive;
+        isLocked = locked;
 
-        if (reelActive)
+        if (!isLocked)
         {
             reelSpinActiveImage.color = activeColor;
             
@@ -64,6 +69,7 @@ public class UIReelSpinButton : MonoBehaviour
             reelSpinActiveImage.color = inactiveColor;
             
             unlockReelButton.gameObject.SetActive(true);
+            unlockReelText.text = $"UNLOCK (${unlockAmount})";
             upgradeReelButton.gameObject.SetActive(false);
             upgradeIconButton.gameObject.SetActive(false);
         }
