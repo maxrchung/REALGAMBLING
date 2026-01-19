@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NUnit.Framework;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,18 +15,18 @@ public class Reel
     private int maxReelValue;
     private int reelSize;
     private int reelItems;
-    
+
     public Reel(int minIcons, int maxIcons, int reelSize)
     {
         currentIndex = 0;
         iconsOnReel = new List<ReelIcons>();
         multiplier = 1;
-        
+
         for (int i = 0; i < reelSize; i++)
         {
             iconsOnReel.Add(ReelIcons.None);
         }
-        
+
         AddIconsRandomly(Random.Range(minIcons, maxIcons));
     }
 
@@ -55,9 +53,9 @@ public class Reel
             Debug.LogError("No more space for new icons!");
             return;
         }
-        
+
         int i = 0;
-        
+
         while (remainingIcons > 0 && iconsOnReel.Contains(ReelIcons.None))
         {
             // if current index has no icon and roll is successful
@@ -66,7 +64,7 @@ public class Reel
                 iconsOnReel[i] = ReelIcons.Snake;
                 remainingIcons--;
             }
-            
+
             i++;
             i %= iconsOnReel.Count;
         }
@@ -74,15 +72,15 @@ public class Reel
 
     private void AddIconsUntilValue()
     {
-        while ( reelValue < maxReelValue &&  reelItems < iconsOnReel.Count)
+        while (reelValue < maxReelValue && reelItems < iconsOnReel.Count)
         {
-            int tryIndex = Random.Range(0,reelSize);
-            if(reelItems < iconsOnReel.Count)
+            int tryIndex = Random.Range(0, reelSize);
+            if (reelItems < iconsOnReel.Count)
             {
-                if(iconsOnReel[tryIndex] == ReelIcons.None)
+                if (iconsOnReel[tryIndex] == ReelIcons.None)
                 {
-                    int tryNum = Random.Range(1,7);
-                    if(reelValue + SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount <= maxReelValue)
+                    int tryNum = Random.Range(1, 7);
+                    if (reelValue + SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount <= maxReelValue)
                     {
                         iconsOnReel[tryNum] = SOReferences.Instance.Icons.Ranks[tryNum];
                         reelValue += SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount;
@@ -92,8 +90,8 @@ public class Reel
             }
             else
             {
-                int tryNum = Random.Range(1,7);
-                if(reelValue + SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount <= maxReelValue)
+                int tryNum = Random.Range(1, 7);
+                if (reelValue + SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount <= maxReelValue)
                 {
                     reelValue -= SOReferences.Instance.Icons.Values[iconsOnReel[tryNum]].PointAmount;
                     iconsOnReel[tryNum] = SOReferences.Instance.Icons.Ranks[tryNum];
@@ -111,19 +109,24 @@ public class Reel
         while (icons.Count < size)
         {
             icons.Add(iconsOnReel[i]);
-            
+
             i++;
             i %= iconsOnReel.Count;
         }
-        
+
         return icons;
     }
-    
+
+    public List<ReelIcons> GetAllIcons()
+    {
+        return iconsOnReel;
+    }
+
     public void SpinReel(int spinSteps)
     {
         // currentIndex += spinSteps;
         // currentIndex %= iconsOnReel.Count;
-        
+
         // decrement, because the Reel spins down
         // take the number of steps and modulo it; on a reel size of 4, moving down 5 is the same as moving down 1
         int actualSteps = spinSteps % iconsOnReel.Count;
@@ -133,7 +136,7 @@ public class Reel
             currentIndex += iconsOnReel.Count;
         }
     }
-    
+
     public void UpgradeReelSize(int extraSize)
     {
         for (int i = 0; i < extraSize; i++)
@@ -176,11 +179,11 @@ public class Reel
     {
         multiplier++;
     }
-    
+
     public override string ToString()
     {
         string iconString = "";
-        
+
         foreach (var icon in IconsOnReel)
         {
             iconString += icon;

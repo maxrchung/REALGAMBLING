@@ -19,7 +19,7 @@ public class MaxIsReel : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SetSprites(icons);
+        SetIcons(icons);
         Spin(steps);
     }
 
@@ -50,7 +50,7 @@ public class MaxIsReel : MonoBehaviour
         }
     }
 
-    public void SetSprites(List<ReelIcons> icons)
+    public void SetIcons(List<ReelIcons> icons)
     {
         for (int i = 0; i < icons.Count; i++)
         {

@@ -62,7 +62,7 @@ public class GameSystem : MonoBehaviour
             playCostText.text = costToPlay.ToString() + "$";
         }
     }
-    
+
     public static GameSystem Instance => instance;
 
     public void Awake()
@@ -88,9 +88,13 @@ public class GameSystem : MonoBehaviour
         {
             reelSpinButtons[i].Initialize(i);
         }
-        
+
         reelInstances.Add(CreateReel());
+        uiReels[0].SetIcons(reelInstances[0].GetAllIcons());
+
         reelInstances.Add(CreateReel());
+        uiReels[1].SetIcons(reelInstances[1].GetAllIcons());
+
         AfterPlayerAction();
     }
 
@@ -110,7 +114,7 @@ public class GameSystem : MonoBehaviour
 
             if (fingerAmount > 0)
             {
-                hand.Cut();   
+                hand.Cut();
             }
             else
             {
@@ -138,7 +142,7 @@ public class GameSystem : MonoBehaviour
         {
             return;
         }
-        
+
         // 1: Check player's money and subtract if enough
         if (moneyAmount < costToPlay)
         {
@@ -161,6 +165,7 @@ public class GameSystem : MonoBehaviour
             // 3: Display results of reel
             List<ReelIcons> reelResults = reelInstances[i].GetIcons(5);
             uiReels[i].DisplayIcons(reelResults);
+            uiReels[i].Spin(iconSteps);
 
             for (int y = 0; y < reelResults.Count; y++)
             {
@@ -195,7 +200,7 @@ public class GameSystem : MonoBehaviour
         // - Add back to money
         int spinScore = ScoreMatches(matches);
         MoneyAmount += spinScore;
-        
+
         AfterPlayerAction();
     }
 
@@ -211,7 +216,7 @@ public class GameSystem : MonoBehaviour
         Reel newReel = CreateReel();
         reelInstances[reelIndex] = newReel;
     }
-    
+
     private List<Match> CheckMatches(List<WinningCombinationSO> combinationsToCheck)
     {
         List<Match> matchList = new List<Match>();
@@ -253,7 +258,7 @@ public class GameSystem : MonoBehaviour
                                 break;
                             }
 
-                            matchPositions.Add(new Vector2Int(boardRow , boardCol));
+                            matchPositions.Add(new Vector2Int(boardRow, boardCol));
                         }
 
                         // leave pattern early if the pattern was broken
@@ -279,7 +284,7 @@ public class GameSystem : MonoBehaviour
     private int ScoreMatches(List<Match> matches)
     {
         int totalScore = 0;
-        
+
         foreach (var match in matches)
         {
             // TODO: Give the patterns multipliers/bonus score
@@ -289,7 +294,7 @@ public class GameSystem : MonoBehaviour
             // amount of icons in one match -- the more icons in a match, the higher it scales
             // amount of matches in one spin -- the more matches, the higher it scales
             // difficulty of pattern -- the rarer the pattern, the bigger the multiplier
-            
+
             Debug.Log(match.pattern.name);
             foreach (var position in match.matchPositions)
             {
@@ -304,7 +309,7 @@ public class GameSystem : MonoBehaviour
 
         return totalScore;
     }
-    
+
     public void OnTradeFingerButtonPressed()
     {
         hand.Cut(); // Money added in HandScript
