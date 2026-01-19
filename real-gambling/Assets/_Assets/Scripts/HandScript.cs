@@ -8,6 +8,7 @@ public class HandScript : MonoBehaviour
     public SkinnedMeshRenderer Renderer;
     public Material Transparent;
     public Image RedPanel;
+    public Image EndPanel;
     public Text[] Texts;
 
     public TextMeshProUGUI MoneyText;
@@ -25,6 +26,8 @@ public class HandScript : MonoBehaviour
 
     public void Pull()
     {
+        money = money - 1;
+        MoneyText.text = money + "$";
         animator.SetTrigger("Pull");
     }
 
@@ -109,13 +112,13 @@ public class HandScript : MonoBehaviour
     private IEnumerator EndGame()
     {
         // Flash red
-        Color color = RedPanel.color;
+        Color color = EndPanel.color;
         var time = 0f;
         while (time < 1f)
         {
             time += Time.deltaTime / 1f;
             color.a = Mathf.Lerp(0, 1f, time);
-            RedPanel.color = color;
+            EndPanel.color = color;
             yield return null;
         }
         yield return new WaitForSeconds(1);

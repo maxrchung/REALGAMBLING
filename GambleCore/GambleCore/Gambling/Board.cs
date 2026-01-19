@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using GambleCore.Interface;
 using GambleCore.Util;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GambleCore.Gambling
 {
@@ -95,7 +94,8 @@ namespace GambleCore.Gambling
 
         public void PerformSteps(int[] steps)
         {
-            for (var i = 0; i < steps.Length; ++i) _wheels[i].Step(steps[i]);
+            for (var i = 0; i < steps.Length; ++i)
+                _wheels[i].Step(steps[i]);
             StepRng();
         }
     }
