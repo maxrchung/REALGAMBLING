@@ -11,4 +11,9 @@ public class UIBetField : MonoBehaviour
     {
         return int.Parse(betInputField.text);
     }
+
+    public void ResetText()
+    {
+        betInputField.text = "";
+    }
 }
