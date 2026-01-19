@@ -70,8 +70,16 @@ public class Reel
     
     public void SpinReel(int spinSteps)
     {
-        currentIndex += spinSteps;
-        currentIndex %= iconsOnReel.Count;
+        // currentIndex += spinSteps;
+        // currentIndex %= iconsOnReel.Count;
+        
+        // decrement, because the Reel spins down
+        currentIndex -= spinSteps;
+
+        while (currentIndex < 0)
+        {
+            currentIndex += iconsOnReel.Count;
+        }
     }
     
     public void UpgradeReelSize(int extraSize)
