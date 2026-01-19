@@ -72,7 +72,7 @@ public class Reel
 
     private void AddIconsUntilValue()
     {
-        while (reelValue < maxReelValue && reelItems < iconsOnReel.Count)
+        while (reelValue < maxReelValue)
         {
             int tryIndex = Random.Range(0, reelSize);
             if (reelItems < iconsOnReel.Count)
