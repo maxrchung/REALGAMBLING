@@ -17,4 +17,9 @@ public class TextBox : MonoBehaviour
     {
         textBoxText.text = text;
     }
+
+    public void MoveBox(Vector2 goPosition)
+    {
+        gameObject.transform.position = goPosition;
+    }
 }
