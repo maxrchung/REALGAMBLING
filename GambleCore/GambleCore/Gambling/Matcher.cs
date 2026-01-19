@@ -46,10 +46,10 @@ namespace GambleCore.Gambling
             {
                 for (var x = 0; x < board.Width; ++x)
                 {
-                    var expected = pattern[x, y];
+                    var expected = pattern[x, y]-1; // patterns are 1 indexed, offset by 1
                     var actual = _board[x, y];
-                    if (expected == 0) continue;
-                    if (storedSymbols[expected] != null)
+                    if (expected == -1) continue; // match 0
+                    if (storedSymbols[expected] == null)
                     {
                         storedSymbols[expected] = actual;
                     } // we can't mismatch already, so only check on second symbol of group
@@ -58,11 +58,15 @@ namespace GambleCore.Gambling
                         // missed, bail out
                         return false;
                     }
-
+                    if (hitPositions[expected] == null)
+                    {
+                        // init with empty list
+                        hitPositions[expected] = new List<MatchPosition>();
+                    }
                     hitPositions[expected].Add(new MatchPosition { X = x, Y = y });
                 }
             }
-
+            
             var groups = new List<Match.Group>();
             for (var i = 0; i < pattern.UsedSymbolCount; ++i)
             {

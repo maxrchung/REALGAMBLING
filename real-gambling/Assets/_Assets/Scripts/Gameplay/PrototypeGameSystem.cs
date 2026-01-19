@@ -7,6 +7,7 @@ using GambleCore.Interface;
 using GambleCore.Util;
 using System.Collections.Generic;
 using System.Linq;
+using GambleCore.Gambling;
 using TMPro;
 
 public class PrototypeGameSystem : MonoBehaviour
@@ -20,15 +21,19 @@ public class PrototypeGameSystem : MonoBehaviour
     [Space]
     [SerializeField] private List<UIReel> reels;
 
-    [Space] [SerializeField] private UIBetField betField;
+    [Space]
+    [SerializeField] private UIBetField betField;
 
-    [Space] [SerializeField] private Button tradeFingerButton;
+    [Space]
+    [SerializeField] private Button tradeFingerButton;
     [SerializeField] private Button playButton;
     [SerializeField] private TMP_Text playButtonText;
 
-    [Space] [SerializeField] private TextBox textBox;
+    [Space]
+    [SerializeField] private TextBox textBox;
 
-    [Space] [SerializeField] private ReelIconValuesSO iconSO;
+    [Space]
+    [SerializeField] private ReelIconValuesSO iconSO;
 
     private int moneyAmount;
     private int fingerAmount;
@@ -38,6 +43,7 @@ public class PrototypeGameSystem : MonoBehaviour
     private GamblingController _gamblingController;
     private IGamblingBoard _board;
     private List<GamblingWheelController> wheels;
+    private Matcher _matcher;
 
     private Vector2 screenCenter = new Vector2(960, 510);
 
@@ -83,7 +89,7 @@ public class PrototypeGameSystem : MonoBehaviour
         _board = _gamblingController.CreateBoard(0);
         wheels = new List<GamblingWheelController>();
         
-        MoneyAmount = 0;
+        MoneyAmount = 10;
         FingerAmount = 5;
         costToPlay = 1;
 
@@ -95,12 +101,18 @@ public class PrototypeGameSystem : MonoBehaviour
         
         CreateWheel();
         CreateWheel();
+        // DEBUG HERE
+        // CreateWheel();
+        // Debug.Log(_board.ToString());
+        // _matcher = _board.BuildCurrentMatcher();
+        // var matches = _matcher.Match(Pattern.PatternLine);
+        // Debug.Log(matches.Length);
         AfterPlayerAction();
     }
 
     public void CreateWheel()
     {
-        string seedName = "GamblingWheel" + wheels.Count;
+        string seedName = "GamblingWheel"  /** + wheels.Count*/;
         var rng = DeterministicRng.CreateStream(0, seedName);
         wheels.Add(new GamblingWheelController());
         wheels[^1].RandomizeSymbols(rng);
@@ -166,6 +178,10 @@ public class PrototypeGameSystem : MonoBehaviour
             reels[i].DisplayIcons(wheelSprites.ToArray());
         }
 
+        Debug.Log(_board.ToString());
+        _matcher = _board.BuildCurrentMatcher();
+        var matches = _matcher.Match(Pattern.PatternLine);
+        Debug.Log(matches.Length);
         AfterPlayerAction();
     }
 

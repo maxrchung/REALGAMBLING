@@ -1,3 +1,5 @@
+using GambleCore.Gambling;
+
 namespace GambleCore.Interface
 {
     public interface IGamblingBoard
@@ -12,5 +14,7 @@ namespace GambleCore.Interface
 
         void AddWheel(IWheel wheel);
         void RemoveWheel(IWheel wheel);
+
+        Matcher BuildCurrentMatcher();
     }
 }

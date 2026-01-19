@@ -38,7 +38,7 @@ namespace GambleCore.Gambling
 
         public override string ToString() => BuildCurrentMatcher().BuildString();
 
-        private Matcher BuildCurrentMatcher()
+        public Matcher BuildCurrentMatcher()
         {
             var board = new Array2D<ISymbol>(Width, Height, null);
 
