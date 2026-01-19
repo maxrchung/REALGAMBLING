@@ -9,7 +9,7 @@ public class HandScript : MonoBehaviour
     public Material Transparent;
     public Image RedPanel;
     public Image EndPanel;
-    public Text[] Texts;
+    public Text[] EndTexts;
 
     public TextMeshProUGUI MoneyText;
 
@@ -123,29 +123,29 @@ public class HandScript : MonoBehaviour
         }
         yield return new WaitForSeconds(1);
 
-        color = Texts[0].color;
+        color = EndTexts[0].color;
         color.a = 1;
-        Texts[0].color = color;
+        EndTexts[0].color = color;
 
         yield return new WaitForSeconds(2);
 
         time = 0f;
-        color = Texts[1].color;
+        color = EndTexts[1].color;
         while (time < 1f)
         {
             time += Time.deltaTime / 0.67f;
             color.a = Mathf.Lerp(0, 1f, time);
-            Texts[1].color = color;
+            EndTexts[1].color = color;
             yield return null;
         }
 
         time = 0f;
-        color = Texts[2].color;
+        color = EndTexts[2].color;
         while (time < 1f)
         {
             time += Time.deltaTime / 0.69f;
             color.a = Mathf.Lerp(0, 1f, time);
-            Texts[2].color = color;
+            EndTexts[2].color = color;
             yield return null;
         }
     }
