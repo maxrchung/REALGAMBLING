@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -90,10 +91,10 @@ public class GameSystem : MonoBehaviour
         }
 
         reelInstances.Add(CreateReel());
-        uiReels[0].SetIcons(reelInstances[0].GetAllIcons());
+        // uiReels[0].SetIcons(reelInstances[0].IconsOnReel);
 
         reelInstances.Add(CreateReel());
-        uiReels[1].SetIcons(reelInstances[1].GetAllIcons());
+        // uiReels[1].SetIcons(reelInstances[1].IconsOnReel);
 
         AfterPlayerAction();
     }
@@ -163,9 +164,11 @@ public class GameSystem : MonoBehaviour
             reelInstances[i].SpinReel(iconSteps);
 
             // 3: Display results of reel
-            List<ReelIcons> reelResults = reelInstances[i].GetIcons(5);
-            uiReels[i].DisplayIcons(reelResults);
+            // List<ReelIcons> reelResults = reelInstances[i].GetIcons(5);
+            // uiReels[i].DisplayIcons(reelResults);
+            uiReels[i].SetIcons(reelInstances[i].IconsOnReel);
             uiReels[i].Spin(iconSteps);
+            List<ReelIcons> reelResults = reelInstances[i].GetIcons(5);
 
             for (int y = 0; y < reelResults.Count; y++)
             {
@@ -173,35 +176,9 @@ public class GameSystem : MonoBehaviour
             }
         }
 
-        // 3: Check for winning combinations
-        List<WinningCombinationSO> combinationsToCheck;
-
-        switch (reelInstances.Count)
-        {
-            case 3:
-                combinationsToCheck = SOReferences.Instance.Combinations.ThreeReelCombinations;
-                break;
-            case 4:
-                combinationsToCheck = SOReferences.Instance.Combinations.FourReelCombinations;
-                break;
-            case 5:
-                combinationsToCheck = SOReferences.Instance.Combinations.FiveReelCombinations;
-                break;
-            default:
-                Debug.LogError($"{reelInstances.Count} not supported for checking");
-                return;
-        }
-
-        List<Match> matches = CheckMatches(combinationsToCheck);
-
-        // 4: Score matches
-        // - Count the icons that matched?
-        // - Check icon attributes
-        // - Add back to money
-        int spinScore = ScoreMatches(matches);
-        MoneyAmount += spinScore;
-
-        AfterPlayerAction();
+        // 2.5: Delay until spin finishes
+        // TODO: use async await
+        StartCoroutine(SpinReelDelay(5));
     }
 
     public void OnUnlockReelButtonPressed(int reelIndex)
@@ -215,7 +192,7 @@ public class GameSystem : MonoBehaviour
         Debug.Log($"Changing reel for {reelIndex}");
         reelInstances[reelIndex].UpgradeReelValue(5);
         print(reelInstances[reelIndex]);
-        uiReels[0].SetIcons(reelInstances[reelIndex].GetAllIcons());
+        uiReels[0].SetIcons(reelInstances[reelIndex].IconsOnReel);
         
     }
 
@@ -339,5 +316,43 @@ public class GameSystem : MonoBehaviour
         }
 
         return false;
+    }
+
+    private IEnumerator SpinReelDelay(float timeInSeconds)
+    {
+        playButton.interactable = false;
+        yield return new WaitForSeconds(timeInSeconds);
+        
+        playButton.interactable = true;
+        
+        // 3: Check for winning combinations
+        List<WinningCombinationSO> combinationsToCheck;
+
+        switch (reelInstances.Count)
+        {
+            case 3:
+                combinationsToCheck = SOReferences.Instance.Combinations.ThreeReelCombinations;
+                break;
+            case 4:
+                combinationsToCheck = SOReferences.Instance.Combinations.FourReelCombinations;
+                break;
+            case 5:
+                combinationsToCheck = SOReferences.Instance.Combinations.FiveReelCombinations;
+                break;
+            default:
+                Debug.LogError($"{reelInstances.Count} not supported for checking");
+                yield break;
+        }
+
+        List<Match> matches = CheckMatches(combinationsToCheck);
+
+        // 4: Score matches
+        // - Count the icons that matched?
+        // - Check icon attributes
+        // - Add back to money
+        int spinScore = ScoreMatches(matches);
+        MoneyAmount += spinScore;
+
+        AfterPlayerAction();
     }
 }

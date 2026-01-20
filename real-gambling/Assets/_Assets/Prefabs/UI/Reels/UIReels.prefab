@@ -48,6 +48,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8727288661827907393}
     m_Modifications:
+    - target: {fileID: 1950115631686774778, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
+      propertyPath: scrollSpeed
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 3684713566271320823, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
       propertyPath: m_Name
       value: UIReel1
@@ -150,6 +154,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8727288661827907393}
     m_Modifications:
+    - target: {fileID: 1950115631686774778, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
+      propertyPath: scrollSpeed
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 3684713566271320823, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
       propertyPath: m_Name
       value: UIReel4
@@ -252,6 +260,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8727288661827907393}
     m_Modifications:
+    - target: {fileID: 1950115631686774778, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
+      propertyPath: scrollSpeed
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 3684713566271320823, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
       propertyPath: m_Name
       value: UIReel2
@@ -354,6 +366,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8727288661827907393}
     m_Modifications:
+    - target: {fileID: 1950115631686774778, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
+      propertyPath: scrollSpeed
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 3684713566271320823, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
       propertyPath: m_Name
       value: UIReel3
@@ -456,6 +472,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8727288661827907393}
     m_Modifications:
+    - target: {fileID: 1950115631686774778, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
+      propertyPath: scrollSpeed
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 3684713566271320823, guid: b8465d8ab5f4a2b49afca39fe3583336, type: 3}
       propertyPath: m_Name
       value: UIReel5
