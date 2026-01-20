@@ -188,13 +188,13 @@ public class GameSystem : MonoBehaviour
         AfterPlayerAction();
     }
 
-    public void OnChangeReelButtonPressed(int reelIndex)
+    public void OnUpgradeReelButtonPressed(int reelIndex)
     {
         Debug.Log($"Changing reel for {reelIndex}");
         reelInstances[reelIndex].UpgradeReelValue(5);
         print(reelInstances[reelIndex]);
         uiReels[reelIndex].SetIcons(reelInstances[reelIndex].IconsOnReel);
-        
+        AfterPlayerAction();
     }
 
     private List<Match> CheckMatches(List<WinningCombinationSO> combinationsToCheck)
