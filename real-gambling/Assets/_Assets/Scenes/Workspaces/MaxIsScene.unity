@@ -242,6 +242,7 @@ MonoBehaviour:
   particleManager: {fileID: 209056953}
   difficulty_scaling: 1.5
   soundManager: {fileID: 867379973}
+  WinButton: {fileID: 769279979}
 --- !u!4 &142521822
 Transform:
   m_ObjectHideFlags: 0
@@ -1488,7 +1489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &769279978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1577,7 +1578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.019607844}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.08627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

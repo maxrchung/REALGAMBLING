@@ -45,6 +45,8 @@ public class GameSystem : MonoBehaviour
     private int pull_count = 0;
     public SoundManager soundManager;
 
+    public Button WinButton;
+
     public int MoneyAmount
     {
         get => moneyAmount;
@@ -52,6 +54,15 @@ public class GameSystem : MonoBehaviour
         {
             moneyAmount = value;
             moneyCounter.text = moneyAmount.ToString() + "$";
+
+            if (moneyAmount < 1000)
+            {
+                WinButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                WinButton.gameObject.SetActive(true);
+            }
         }
     }
 
