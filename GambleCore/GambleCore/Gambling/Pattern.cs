@@ -20,7 +20,7 @@ namespace GambleCore.Gambling
             _pattern = new Array2D<int>(pattern);
         }
 
-        public int this[int x, int y] => _pattern[y, x];
+        public int this[int x, int y] => _pattern[x, y];
 
         private int CharToSymbol(char c)
         {
