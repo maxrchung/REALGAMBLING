@@ -192,7 +192,7 @@ public class GameSystem : MonoBehaviour
         Debug.Log($"Changing reel for {reelIndex}");
         reelInstances[reelIndex].UpgradeReelValue(5);
         print(reelInstances[reelIndex]);
-        uiReels[0].SetIcons(reelInstances[reelIndex].IconsOnReel);
+        uiReels[reelIndex].SetIcons(reelInstances[reelIndex].IconsOnReel);
         
     }
 
@@ -237,7 +237,7 @@ public class GameSystem : MonoBehaviour
                                 break;
                             }
 
-                            matchPositions.Add(new Vector2Int(boardRow, boardCol));
+                            matchPositions.Add(new Vector2Int(boardRow + comboRow, boardCol + comboCol));
                         }
 
                         // leave pattern early if the pattern was broken
