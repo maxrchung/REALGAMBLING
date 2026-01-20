@@ -92,7 +92,7 @@ public class GameSystem : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

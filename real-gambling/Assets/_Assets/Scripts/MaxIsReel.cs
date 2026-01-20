@@ -23,8 +23,8 @@ public class MaxIsReel : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SetIcons(icons);
-        Spin(steps);
+        //SetIcons(icons);
+        //Spin(steps);
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class MaxIsReel : MonoBehaviour
         float bottomY = -mask.rect.height / 2f - iconWidth / 2f;
 
         tick_counter += delta;
-        if(tick_counter >= tick_interval)
+        if (tick_counter >= tick_interval)
         {
             soundManager.PlaySound(2);
             tick_counter = 0;
