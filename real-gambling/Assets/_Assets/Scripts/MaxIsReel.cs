@@ -16,6 +16,10 @@ public class MaxIsReel : MonoBehaviour
 
     private float distance = 0;
 
+    public SoundManager soundManager;
+    public float tick_interval;
+    private float tick_counter = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +45,13 @@ public class MaxIsReel : MonoBehaviour
         distance -= delta;
         Vector3 down = delta * Vector3.down;
         float bottomY = -mask.rect.height / 2f - iconWidth / 2f;
+
+        tick_counter += delta;
+        if(tick_counter >= tick_interval)
+        {
+            soundManager.PlaySound(2);
+            tick_counter = 0;
+        }
 
         // Move each icon individually
         foreach (var image in images)

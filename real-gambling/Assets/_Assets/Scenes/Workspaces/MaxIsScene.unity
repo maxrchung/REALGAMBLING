@@ -1300,6 +1300,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5781126451463032110, guid: 09a770ed1df6a4c45b2c992123c67546, type: 3}
+      propertyPath: m_Volume
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1418,9 +1422,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1492928385}
     m_Modifications:
+    - target: {fileID: 1106324872099921185, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 867379973}
+    - target: {fileID: 1106324872099921185, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: tick_interval
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281573650537027891, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 867379973}
+    - target: {fileID: 2281573650537027891, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: tick_interval
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720234986166086095, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 867379973}
+    - target: {fileID: 3720234986166086095, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: tick_interval
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894984471469495366, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 867379973}
+    - target: {fileID: 3894984471469495366, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: tick_interval
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7762106058084550434, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
       propertyPath: m_Name
       value: UIReels
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024738422841390997, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 867379973}
+    - target: {fileID: 8024738422841390997, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
+      propertyPath: tick_interval
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8727288661827907393, guid: 8ebbda1a0881cc04da6247c2e0fc5c95, type: 3}
       propertyPath: m_Pivot.x

@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] media;
     public AudioSource source;
     public AudioSource musicSource;
+    public AudioSource clickSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +16,14 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(int sound)
     {
-        source.PlayOneShot(media[sound]);
+        if(sound == 2)
+        {
+            clickSource.PlayOneShot(media[sound]);  
+        }
+        else
+        {
+            source.PlayOneShot(media[sound]);
+        }
     }
 
     public void PlayIntroAndLoop()
