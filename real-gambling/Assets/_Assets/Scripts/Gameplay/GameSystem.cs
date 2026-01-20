@@ -37,6 +37,8 @@ public class GameSystem : MonoBehaviour
 
     public GameObject appleSpinny;
 
+    public ParticleManager particleManager;
+
     public int MoneyAmount
     {
         get => moneyAmount;
@@ -363,6 +365,44 @@ public class GameSystem : MonoBehaviour
         }
 
         List<Match> matches = CheckMatches(combinationsToCheck);
+
+        foreach (Match m in matches)
+        {
+            foreach (Vector2Int pos in m.matchPositions)
+            {
+                
+                switch (reelsAsBoard[pos.x,pos.y])
+                {
+                    case ReelIcons.Worm:
+                        particleManager.BurstParticles(0);
+                        goto case ReelIcons.SmallFry;
+                    case ReelIcons.SmallFry:
+                        particleManager.BurstParticles(1);
+                        goto case ReelIcons.Hook;
+                    case ReelIcons.Hook:
+                        particleManager.BurstParticles(2);
+                        goto case ReelIcons.Fish;
+                    case ReelIcons.Fish:
+                        particleManager.BurstParticles(3);
+                        goto case ReelIcons.Bass;
+                    case ReelIcons.Bass:
+                        particleManager.BurstParticles(4);
+                        goto case ReelIcons.Mackerel;
+                    case ReelIcons.Mackerel:
+                        particleManager.BurstParticles(5);
+                        goto case ReelIcons.Chef;
+                    case ReelIcons.Chef:
+                        particleManager.BurstParticles(6);
+                        goto case ReelIcons.Sashimi;
+                    case ReelIcons.Sashimi:
+                        particleManager.BurstParticles(7);
+                        goto case ReelIcons.MaxFish;
+                    case ReelIcons.MaxFish:
+                        particleManager.BurstParticles(8);
+                        break;
+                }
+            }
+        }
 
         // 4: Score matches
         // - Count the icons that matched?
