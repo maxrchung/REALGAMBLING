@@ -156,8 +156,8 @@ public class GameSystem : MonoBehaviour
         }
 
         MoneyAmount -= costToPlay;
-        pull_count ++;
-        if(pull_count%2 == 0)
+        pull_count++;
+        if (pull_count % 2 == 0)
         {
             costToPlay = (int)Mathf.Ceil(costToPlay * difficulty_scaling);
         }
@@ -452,5 +452,17 @@ public class GameSystem : MonoBehaviour
     public int HowManyReelsDoWeHaveInterrobang()
     {
         return reelInstances.Count;
+    }
+
+    public void Win()
+    {
+        if (MoneyAmount < 1000)
+        {
+            return;
+        }
+
+
+        int takeAway = MoneyAmount - 1000;
+        hand.Win(takeAway);
     }
 }

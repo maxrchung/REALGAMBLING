@@ -9,8 +9,11 @@ public class HandScript : MonoBehaviour
     public Material Transparent;
     public Image RedPanel;
     public Image EndPanel;
+    public Image WinPanel;
     public Text[] EndTexts;
     public SoundManager soundManager;
+    public GameObject door;
+    public TextMeshProUGUI YouLeftText;
 
     private Animator animator;
 
@@ -154,5 +157,57 @@ public class HandScript : MonoBehaviour
     public void Gain()
     {
         GameSystem.Instance.MoneyAmount += 2;
+    }
+
+    public void Win(int takeAway)
+    {
+        StartCoroutine(WinCoroutine(takeAway));
+    }
+
+    private IEnumerator WinCoroutine(int takeAway)
+    {
+
+        Color color = WinPanel.color;
+        var time = 0f;
+        while (time < 1f)
+        {
+            time += Time.deltaTime / 1f;
+            color.a = Mathf.Lerp(0, 1f, time);
+            WinPanel.color = color;
+            yield return null;
+        }
+        yield return new WaitForSeconds(2);
+
+        color = EndTexts[3].color;
+        color.a = 1;
+        EndTexts[3].color = color;
+
+        YouLeftText.gameObject.SetActive(true);
+        YouLeftText.text = takeAway.ToString() + "$";
+
+        yield return new WaitForSeconds(2);
+
+        door.SetActive(true);
+        yield return new WaitForSeconds(2);
+
+        time = 0f;
+        color = EndTexts[1].color;
+        while (time < 1f)
+        {
+            time += Time.deltaTime / 0.67f;
+            color.a = Mathf.Lerp(0, 1f, time);
+            EndTexts[1].color = color;
+            yield return null;
+        }
+
+        time = 0f;
+        color = EndTexts[2].color;
+        while (time < 1f)
+        {
+            time += Time.deltaTime / 0.69f;
+            color.a = Mathf.Lerp(0, 1f, time);
+            EndTexts[2].color = color;
+            yield return null;
+        }
     }
 }
