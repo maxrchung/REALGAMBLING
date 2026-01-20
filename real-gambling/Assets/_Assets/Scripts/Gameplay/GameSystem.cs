@@ -7,18 +7,15 @@ using UnityEngine.UI;
 
 public class GameSystem : MonoBehaviour
 {
-    [Header("UI Objects")]
-    [SerializeField] private TextMeshProUGUI moneyCounter;
+    [Header("UI Objects")] [SerializeField]
+    private TextMeshProUGUI moneyCounter;
 
-    [Space]
-    [SerializeField] private List<UIReelSpinButton> reelSpinButtons;
+    [Space] [SerializeField] private List<UIReelSpinButton> reelSpinButtons;
 
-    [FormerlySerializedAs("reels")]
-    [Space]
-    [SerializeField] private List<UIReel> uiReels;
+    [FormerlySerializedAs("reels")] [Space] [SerializeField]
+    private List<UIReel> uiReels;
 
-    [Space]
-    [SerializeField] private Button tradeFingerButton;
+    [Space] [SerializeField] private Button tradeFingerButton;
     [SerializeField] private Button playButton;
     [SerializeField] private TMP_Text playCostText;
 
@@ -35,6 +32,10 @@ public class GameSystem : MonoBehaviour
 
     private static GameSystem instance;
 
+    private List<GameObject> spawnedObjects = new List<GameObject>();
+
+    public GameObject appleSpinny;
+
     public int MoneyAmount
     {
         get => moneyAmount;
@@ -48,10 +49,7 @@ public class GameSystem : MonoBehaviour
     public int FingerAmount
     {
         get => fingerAmount;
-        set
-        {
-            fingerAmount = value;
-        }
+        set { fingerAmount = value; }
     }
 
     public int CostToPlay
@@ -110,7 +108,8 @@ public class GameSystem : MonoBehaviour
     {
         playCostText.text = $"{costToPlay}$";
         if (moneyAmount < costToPlay)
-        { // edge case, out of money
+        {
+            // edge case, out of money
             playButton.interactable = false;
 
             if (fingerAmount > 0)
@@ -184,6 +183,35 @@ public class GameSystem : MonoBehaviour
     }
 
     public void OnUpgradeReelButtonPressed(int reelIndex)
+    private void RenderMatches(List<Match> matches)
+    {
+        // clear spawned objects
+        foreach (var spawnedObject in spawnedObjects)
+        {
+            Destroy(spawnedObject);
+        }
+
+        spawnedObjects.Clear();
+
+        var SCREEN_WIDTH = 1024;
+        var SCREEN_HEIGHT = 768;
+        var slot_width = SCREEN_WIDTH / reelsAsBoard.GetLength(1);
+        var slot_height = SCREEN_HEIGHT / reelsAsBoard.GetLength(0);
+
+        foreach (var match in matches)
+        {
+            foreach (var position in match.matchPositions)
+            {
+                float screenX = (position.y + 0.5f) * slot_width;
+                float screenY = SCREEN_HEIGHT - ((position.x + 0.5f) * slot_height);
+                Debug.Log($"{position.x}, {position.y} => {screenX}, {screenY}");
+                var worldPos = Camera.main.ScreenToWorldPoint(new Vector3(screenX, screenY, 2f));
+                spawnedObjects.Add(Instantiate(appleSpinny, worldPos, Quaternion.identity));
+            }
+        }
+    }
+
+    public void OnChangeReelButtonPressed(int reelIndex)
     {
         Debug.Log($"Changing reel for {reelIndex}");
         reelInstances[reelIndex].UpgradeReelValue(5);
@@ -219,7 +247,6 @@ public class GameSystem : MonoBehaviour
                     {
                         for (int comboCol = 0; comboCol < combo.Width; comboCol++)
                         {
-
                             // continue to next square if there is no icon set
                             // in the inspector, the axes are switched
                             if (!combo.Pattern[comboCol, comboRow])
@@ -278,8 +305,10 @@ public class GameSystem : MonoBehaviour
                 totalScore += SOReferences.Instance.Icons.Values[icon].PointAmount;
                 Debug.Log($"{icon}, {SOReferences.Instance.Icons.Values[icon].PointAmount}");
             }
+
             Debug.Log($"score after combo: {totalScore}");
         }
+
         Debug.Log($"{matches.Count} matches made, {totalScore} money earned");
 
         return totalScore;
@@ -349,6 +378,7 @@ public class GameSystem : MonoBehaviour
         int spinScore = ScoreMatches(matches);
         MoneyAmount += spinScore;
 
+        RenderMatches(matches);
         AfterPlayerAction();
     }
 }

@@ -165,6 +165,7 @@ MonoBehaviour:
   playButton: {fileID: 334471430}
   playCostText: {fileID: 587048838}
   hand: {fileID: 617091563}
+  appleSpinny: {fileID: 2723558412327681368, guid: bbacac017edbb46d8ab2fa8ff84758d5, type: 3}
 --- !u!4 &142521822
 Transform:
   m_ObjectHideFlags: 0

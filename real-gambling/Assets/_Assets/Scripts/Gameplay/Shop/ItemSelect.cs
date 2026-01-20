@@ -18,7 +18,7 @@ public class ItemSelect : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
 
     private Vector3 originalScale;
 
-    private Boolean shouldUpdate;
+    private Boolean shouldUpdate = true;
 
     public void setClickCallback(Action<GameObject> clickCallback)
     {
