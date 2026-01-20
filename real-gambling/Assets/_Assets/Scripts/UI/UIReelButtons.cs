@@ -20,6 +20,8 @@ public class UIReelSpinButton : MonoBehaviour
     private int reelIndex;
 
     public bool IsLocked => isLocked;
+    private int base_upgrade_cost = 5;
+    public int upgrade_scaling = 3;
 
     public void Initialize(int index)
     {
@@ -51,9 +53,11 @@ public class UIReelSpinButton : MonoBehaviour
 
     public void OnChangeReelButtonClicked()
     {
-        if (GameSystem.Instance.TrySubtractMoney(5))
+        if (GameSystem.Instance.TrySubtractMoney(base_upgrade_cost))
         {
             GameSystem.Instance.OnUpgradeReelButtonPressed(reelIndex);
+            base_upgrade_cost += upgrade_scaling;
+            upgradeReelText.text = base_upgrade_cost.ToString() + "$";
         }
     }
 

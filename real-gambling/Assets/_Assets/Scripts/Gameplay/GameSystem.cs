@@ -41,6 +41,8 @@ public class GameSystem : MonoBehaviour
     public GameObject appleSpinny;
 
     public ParticleManager particleManager;
+    public float difficulty_scaling;
+    private int pull_count = 0;
 
     public int MoneyAmount
     {
@@ -154,7 +156,11 @@ public class GameSystem : MonoBehaviour
         }
 
         MoneyAmount -= costToPlay;
-
+        pull_count ++;
+        if(pull_count%2 == 0)
+        {
+            costToPlay = (int)Mathf.Ceil(costToPlay * difficulty_scaling);
+        }
 
         hand.Pull();
 
@@ -224,7 +230,7 @@ public class GameSystem : MonoBehaviour
     public void OnUpgradeReelButtonPressed(int reelIndex)
     {
         Debug.Log($"Changing reel for {reelIndex}");
-        reelInstances[reelIndex].UpgradeReelValue(5);
+        reelInstances[reelIndex].UpgradeReelValue(8);
         print(reelInstances[reelIndex]);
         uiReels[reelIndex].SetIcons(reelInstances[reelIndex].IconsOnReel);
         AfterPlayerAction();
