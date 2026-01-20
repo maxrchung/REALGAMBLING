@@ -101,14 +101,14 @@ public class GameSystem : MonoBehaviour
 
     public Reel CreateReel()
     {
-        Reel newReel = new Reel(12,10);
+        Reel newReel = new Reel(12, 10);
         Debug.Log(newReel.ToString());
         return newReel;
     }
 
     public void AfterPlayerAction()
     {
-        playCostText.text = $"PLAY\n({costToPlay}$)";
+        playCostText.text = $"{costToPlay}$";
         if (moneyAmount < costToPlay)
         { // edge case, out of money
             playButton.interactable = false;
@@ -139,11 +139,6 @@ public class GameSystem : MonoBehaviour
 
     public void OnPlayButtonPressed()
     {
-        if (reelInstances.Count < 3)
-        {
-            return;
-        }
-
         // 1: Check player's money and subtract if enough
         if (moneyAmount < costToPlay)
         {
@@ -323,9 +318,9 @@ public class GameSystem : MonoBehaviour
     {
         playButton.interactable = false;
         yield return new WaitForSeconds(timeInSeconds);
-        
+
         playButton.interactable = true;
-        
+
         // 3: Check for winning combinations
         List<WinningCombinationSO> combinationsToCheck;
 

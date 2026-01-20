@@ -1,7 +1,6 @@
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIReelSpinButton : MonoBehaviour
@@ -45,7 +44,7 @@ public class UIReelSpinButton : MonoBehaviour
 
     public void OnUpgradeReelButtonClicked()
     {
-        
+
     }
 
     public void OnChangeReelButtonClicked()
@@ -62,17 +61,17 @@ public class UIReelSpinButton : MonoBehaviour
 
         if (!isLocked)
         {
-            reelSpinActiveImage.color = activeColor;
-            
+            //reelSpinActiveImage.color = activeColor;
+
             unlockReelButton.gameObject.SetActive(false);
             upgradeReelButton.gameObject.SetActive(true);
         }
         else
         {
-            reelSpinActiveImage.color = inactiveColor;
-            
+            //reelSpinActiveImage.color = inactiveColor;
+
             unlockReelButton.gameObject.SetActive(true);
-            unlockReelText.text = $"UNLOCK (${unlockAmount})";
+            unlockReelText.text = $"{unlockAmount}$";
             upgradeReelButton.gameObject.SetActive(false);
         }
     }
