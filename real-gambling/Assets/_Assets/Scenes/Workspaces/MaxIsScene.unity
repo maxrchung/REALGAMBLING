@@ -168,6 +168,7 @@ MonoBehaviour:
   appleSpinny: {fileID: 2723558412327681368, guid: bbacac017edbb46d8ab2fa8ff84758d5, type: 3}
   particleManager: {fileID: 209056953}
   difficulty_scaling: 1.5
+  soundManager: {fileID: 867379973}
 --- !u!4 &142521822
 Transform:
   m_ObjectHideFlags: 0
