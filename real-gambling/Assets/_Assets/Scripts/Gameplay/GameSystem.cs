@@ -152,22 +152,7 @@ public class GameSystem : MonoBehaviour
 
     public void OnPlayButtonPressed()
     {
-        // 1: Check player's money and subtract if enough
-        if (moneyAmount < costToPlay)
-        {
-            playButton.interactable = false;
-
-            if (fingerAmount > 0)
-            {
-                hand.Cut();
-            }
-            else
-            {
-                // Game Over -- Handled by HandScript
-            }
-
-            return;
-        }
+        playButton.interactable = false;
 
         MoneyAmount -= costToPlay;
         pull_count++;
@@ -466,6 +451,22 @@ public class GameSystem : MonoBehaviour
         MoneyAmount += spinScore;
 
         RenderMatches(matches);
+
+        // 1: Check player's money and subtract if enough
+        if (moneyAmount < 0)
+        {
+            playButton.interactable = false;
+
+            if (fingerAmount > 0)
+            {
+                hand.Cut();
+            }
+            else
+            {
+                // Game Over -- Handled by HandScript
+            }
+        }
+
         AfterPlayerAction();
     }
 
