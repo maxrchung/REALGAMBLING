@@ -2257,10 +2257,10 @@ RectTransform:
   - {fileID: 334471429}
   - {fileID: 948853811}
   - {fileID: 1960595483}
-  - {fileID: 146282805}
   - {fileID: 192089063}
   - {fileID: 1479040380}
   - {fileID: 1844252598}
+  - {fileID: 146282805}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
