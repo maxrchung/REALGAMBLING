@@ -183,7 +183,6 @@ public class GameSystem : MonoBehaviour
         AfterPlayerAction();
     }
 
-    public void OnUpgradeReelButtonPressed(int reelIndex)
     private void RenderMatches(List<Match> matches)
     {
         // clear spawned objects
@@ -217,7 +216,7 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    public void OnChangeReelButtonPressed(int reelIndex)
+    public void OnUpgradeReelButtonPressed(int reelIndex)
     {
         Debug.Log($"Changing reel for {reelIndex}");
         reelInstances[reelIndex].UpgradeReelValue(5);

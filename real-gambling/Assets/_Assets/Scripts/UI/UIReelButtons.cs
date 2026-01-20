@@ -42,11 +42,6 @@ public class UIReelSpinButton : MonoBehaviour
         }
     }
 
-    public void OnUpgradeReelButtonClicked()
-    {
-
-    }
-
     public void OnChangeReelButtonClicked()
     {
         if (GameSystem.Instance.TrySubtractMoney(5))
