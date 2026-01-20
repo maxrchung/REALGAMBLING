@@ -3180,6 +3180,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7451315237069264990, guid: ac09b711620a5674782686b7b4b9906d, type: 3}
+      propertyPath: isLocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7749103518664506467, guid: ac09b711620a5674782686b7b4b9906d, type: 3}
       propertyPath: m_Name
       value: UIReelSpinButtons

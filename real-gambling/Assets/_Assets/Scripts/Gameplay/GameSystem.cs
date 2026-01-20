@@ -8,15 +8,18 @@ using UnityEngine.UI;
 
 public class GameSystem : MonoBehaviour
 {
-    [Header("UI Objects")] [SerializeField]
+    [Header("UI Objects")]
+    [SerializeField]
     private TextMeshProUGUI moneyCounter;
 
-    [Space] [SerializeField] private List<UIReelSpinButton> reelSpinButtons;
+    [Space][SerializeField] private List<UIReelSpinButton> reelSpinButtons;
 
-    [FormerlySerializedAs("reels")] [Space] [SerializeField]
+    [FormerlySerializedAs("reels")]
+    [Space]
+    [SerializeField]
     private List<UIReel> uiReels;
 
-    [Space] [SerializeField] private Button tradeFingerButton;
+    [Space][SerializeField] private Button tradeFingerButton;
     [SerializeField] private Button playButton;
     [SerializeField] private TMP_Text playCostText;
 
@@ -96,6 +99,9 @@ public class GameSystem : MonoBehaviour
 
         reelInstances.Add(CreateReel());
         uiReels[1].SetIcons(reelInstances[1].IconsOnReel);
+
+        reelInstances.Add(CreateReel());
+        uiReels[2].SetIcons(reelInstances[2].IconsOnReel);
 
         AfterPlayerAction();
     }
@@ -201,7 +207,7 @@ public class GameSystem : MonoBehaviour
             Debug.Log($"{match.pattern.name} matched at position: {posString}");
             foreach (var position in match.matchPositions)
             {
-                var reelVerticalOffset = MaxIsReel.iconWidth * (position.x-2);
+                var reelVerticalOffset = MaxIsReel.iconWidth * (position.x - 2);
                 var reelWorldPos = uiReels[position.y].transform.position;
                 RectTransform rt = uiReels[position.y].maxIsReel.mask;
                 if (rt != null)
@@ -377,8 +383,8 @@ public class GameSystem : MonoBehaviour
         {
             foreach (Vector2Int pos in m.matchPositions)
             {
-                
-                switch (reelsAsBoard[pos.x,pos.y])
+
+                switch (reelsAsBoard[pos.x, pos.y])
                 {
                     case ReelIcons.Worm:
                         particleManager.BurstParticles(0);
