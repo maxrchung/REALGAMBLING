@@ -52,6 +52,12 @@ public class MaxIsReel : MonoBehaviour
 
     public void SetIcons(List<ReelIcons> icons)
     {
+        for (int i = content.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(content.transform.GetChild(i).gameObject);
+            images.Clear();
+        }
+        
         for (int i = 0; i < icons.Count; i++)
         {
             var sprite = SOReferences.Instance.Icons.Values[icons[i]].iconSprite;

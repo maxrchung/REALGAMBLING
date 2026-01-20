@@ -129,11 +129,6 @@ public class Reel
         return icons;
     }
 
-    public List<ReelIcons> GetAllIcons()
-    {
-        return iconsOnReel;
-    }
-
     public void SpinReel(int spinSteps)
     {
         // currentIndex += spinSteps;
