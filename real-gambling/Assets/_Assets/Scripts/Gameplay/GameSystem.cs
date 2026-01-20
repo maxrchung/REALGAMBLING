@@ -455,8 +455,6 @@ public class GameSystem : MonoBehaviour
         // 1: Check player's money and subtract if enough
         if (moneyAmount < 0)
         {
-            playButton.interactable = false;
-
             if (fingerAmount > 0)
             {
                 hand.Cut();
