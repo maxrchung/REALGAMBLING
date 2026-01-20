@@ -30,10 +30,10 @@ public class Reel
         AddIconsRandomly(Random.Range(minIcons, maxIcons));
     }
 
-    public Reel(int newReelSize, int reelValue)
+    public Reel(int newReelSize, int newReelValue)
     {
         Debug.Log("creating new reel");
-        maxReelValue = reelValue;
+        maxReelValue = newReelValue;
         reelValue = 0;
         reelSize = newReelSize;
         reelItems = 0;
@@ -82,7 +82,7 @@ public class Reel
                     int tryNum = Random.Range(1, 7);
                     if (reelValue + SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount <= maxReelValue)
                     {
-                        iconsOnReel[tryNum] = SOReferences.Instance.Icons.Ranks[tryNum];
+                        iconsOnReel[tryIndex] = SOReferences.Instance.Icons.Ranks[tryNum];
                         reelValue += SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount;
                         reelItems += 1;
                     }
@@ -94,11 +94,23 @@ public class Reel
                 if (reelValue + SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount <= maxReelValue)
                 {
                     reelValue -= SOReferences.Instance.Icons.Values[iconsOnReel[tryNum]].PointAmount;
-                    iconsOnReel[tryNum] = SOReferences.Instance.Icons.Ranks[tryNum];
+                    iconsOnReel[tryIndex] = SOReferences.Instance.Icons.Ranks[tryNum];
                     reelValue += SOReferences.Instance.Icons.Values[SOReferences.Instance.Icons.Ranks[tryNum]].PointAmount;
                 }
             }
         }
+    }
+
+    public void UpgradeReelValue(int upgradeVal)
+    {
+        for (int i = 0; i < reelSize; i++)
+        {
+            iconsOnReel[i] = ReelIcons.None;
+        }
+        maxReelValue += upgradeVal;
+        reelValue = 0;
+        reelItems = 0;
+        AddIconsUntilValue();
     }
 
     public List<ReelIcons> GetIcons(int size)
