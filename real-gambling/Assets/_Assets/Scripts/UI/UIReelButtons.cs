@@ -9,9 +9,9 @@ public class UIReelSpinButton : MonoBehaviour
     [SerializeField, ShowIf("isLocked")] private int unlockAmount;
     [Space]
     [SerializeField] private Button unlockReelButton;
-    [SerializeField] private TMP_Text unlockReelText;
+    [SerializeField] private TextMeshProUGUI unlockReelText;
     [SerializeField] private Button upgradeReelButton;
-    [SerializeField] private TMP_Text upgradeReelText;
+    [SerializeField] private TextMeshProUGUI upgradeReelText;
     [SerializeField] private Image reelSpinActiveImage;
     [Space]
     [SerializeField] private Color activeColor;
