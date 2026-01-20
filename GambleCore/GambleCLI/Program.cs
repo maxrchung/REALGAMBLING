@@ -33,6 +33,13 @@ Console.WriteLine($"Rolled: {string.Join(',', steps)}");
 board.PerformSteps(steps);
 Console.WriteLine($"New state:\n{board}");
 
+var matcher = board.BuildCurrentMatcher();
+var matches = new List<Match>();
+matches.AddRange(matcher.Match(Pattern.PatternLine));
+matches.AddRange(matcher.Match(Pattern.PatternVerticalLine));
+matches.AddRange(matcher.Match(Pattern.PatternDiagonal));
+Console.WriteLine($"Matches: {string.Join(',', matches)}");
+
 internal enum SymbolType
 {
     Cross = 1,

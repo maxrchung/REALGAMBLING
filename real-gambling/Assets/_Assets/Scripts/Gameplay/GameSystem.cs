@@ -8,18 +8,15 @@ using UnityEngine.UI;
 
 public class GameSystem : MonoBehaviour
 {
-    [Header("UI Objects")]
-    [SerializeField]
+    [Header("UI Objects")] [SerializeField]
     private TextMeshProUGUI moneyCounter;
 
-    [Space][SerializeField] private List<UIReelSpinButton> reelSpinButtons;
+    [Space] [SerializeField] private List<UIReelSpinButton> reelSpinButtons;
 
-    [FormerlySerializedAs("reels")]
-    [Space]
-    [SerializeField]
+    [FormerlySerializedAs("reels")] [Space] [SerializeField]
     private List<UIReel> uiReels;
 
-    [Space][SerializeField] private Button tradeFingerButton;
+    [Space] [SerializeField] private Button tradeFingerButton;
     [SerializeField] private Button playButton;
     [SerializeField] private TMP_Text playCostText;
 
@@ -106,6 +103,7 @@ public class GameSystem : MonoBehaviour
         reelInstances.Add(CreateReel());
         uiReels[2].SetIcons(reelInstances[2].IconsOnReel);
 
+        hand.Cut();
         AfterPlayerAction();
     }
 
@@ -122,16 +120,6 @@ public class GameSystem : MonoBehaviour
         if (moneyAmount < costToPlay)
         {
             // edge case, out of money
-            playButton.interactable = false;
-
-            if (fingerAmount > 0)
-            {
-                hand.Cut();
-            }
-            else
-            {
-                // Game Over -- Handled by HandScript
-            }
 
             return;
         }
@@ -153,12 +141,23 @@ public class GameSystem : MonoBehaviour
         // 1: Check player's money and subtract if enough
         if (moneyAmount < costToPlay)
         {
+            playButton.interactable = false;
+
+            if (fingerAmount > 0)
+            {
+                hand.Cut();
+            }
+            else
+            {
+                // Game Over -- Handled by HandScript
+            }
+
             return;
         }
 
         MoneyAmount -= costToPlay;
-        pull_count ++;
-        if(pull_count%2 == 0)
+        pull_count++;
+        if (pull_count % 2 == 0)
         {
             costToPlay = (int)Mathf.Ceil(costToPlay * difficulty_scaling);
         }
@@ -187,6 +186,7 @@ public class GameSystem : MonoBehaviour
                 reelsAsBoard[y, i] = reelResults[y];
             }
         }
+
         //
         foreach (var spawnedObject in spawnedObjects)
         {
@@ -223,6 +223,7 @@ public class GameSystem : MonoBehaviour
                 {
                     reelWorldPos = rt.TransformPoint(rt.localPosition - new Vector3(0, reelVerticalOffset, 0));
                 }
+
                 spawnedObjects.Add(Instantiate(appleSpinny, reelWorldPos, Quaternion.identity));
             }
         }
@@ -359,7 +360,6 @@ public class GameSystem : MonoBehaviour
         {
             return false;
         }
-
     }
 
     public bool TrySubtractFingers(int difference)
@@ -406,7 +406,6 @@ public class GameSystem : MonoBehaviour
             kaching = true;
             foreach (Vector2Int pos in m.matchPositions)
             {
-
                 switch (reelsAsBoard[pos.x, pos.y])
                 {
                     case ReelIcons.Worm:
@@ -439,7 +438,8 @@ public class GameSystem : MonoBehaviour
                 }
             }
         }
-        if(kaching)
+
+        if (kaching)
         {
             soundManager.PlaySound(8);
         }
