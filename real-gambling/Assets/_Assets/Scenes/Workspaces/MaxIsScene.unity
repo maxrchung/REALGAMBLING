@@ -771,7 +771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 183, y: 283}
+  m_AnchoredPosition: {x: 109, y: 292}
   m_SizeDelta: {x: 245.1, y: 60.119}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &359731254
@@ -1055,7 +1055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94, y: 87}
+  m_AnchoredPosition: {x: 87, y: 49}
   m_SizeDelta: {x: 245.1, y: 60.119}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &587048838
@@ -1105,8 +1105,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3333,6 +3333,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcaaec74733b0a4895cc258043ecaeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIReelSpinButton
+--- !u!1001 &1974795485
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.542546
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.542546
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.542546
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.61797
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.8821
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.02392524
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9997138
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -177.258
+      objectReference: {fileID: 0}
+    - target: {fileID: 825564490539126966, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862822270800428545, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
+      propertyPath: m_Name
+      value: shop
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: -4161369568681901532, guid: dd6cfd85e0968b644a662a830edfa714, type: 3}
 --- !u!1001 &2040337690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4055,3 +4124,4 @@ SceneRoots:
   - {fileID: 142521822}
   - {fileID: 714097401}
   - {fileID: 539679070}
+  - {fileID: 1974795485}
