@@ -119,6 +119,7 @@ public class Reel
             maxReelValue += upgradeVal;
             reelValue = 0;
             reelItems = 0;
+            currentIndex = 0;
             AddIconsUntilValue();
         }
     }
@@ -203,7 +204,7 @@ public class Reel
 
         foreach (var icon in IconsOnReel)
         {
-            iconString += icon;
+            iconString += " | " + icon;
         }
 
         return iconString;

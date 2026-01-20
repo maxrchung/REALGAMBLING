@@ -161,6 +161,7 @@ public class GameSystem : MonoBehaviour
 
         // 2: Spin the reel
         reelsAsBoard = new ReelIcons[5, reelInstances.Count];
+        // Debug.Log("================== SPIN ==================");
         for (int i = 0; i < reelInstances.Count; i++)
         {
             int iconSteps = Random.Range(100, 150);
@@ -170,9 +171,10 @@ public class GameSystem : MonoBehaviour
             // List<ReelIcons> reelResults = reelInstances[i].GetIcons(5);
             // uiReels[i].DisplayIcons(reelResults);
             // uiReels[i].SetIcons(reelInstances[i].IconsOnReel);
+            // Debug.Log($"Reel {i}: {reelInstances[i].ToString()}");
             uiReels[i].Spin(iconSteps);
             List<ReelIcons> reelResults = reelInstances[i].GetIcons(5);
-
+            uiReels[i].SetDebugImages(reelResults);
             for (int y = 0; y < reelResults.Count; y++)
             {
                 reelsAsBoard[y, i] = reelResults[y];
