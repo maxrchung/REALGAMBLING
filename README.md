@@ -1,6 +1,6 @@
 # REAL GAMBLING
 
-Sequel to [REAL FISHING](https://github.com/maxrchung/real-fishing)
+Sequel to REAL FISHING
 
 Pull and upgrade your fishing slot machine!!
 
